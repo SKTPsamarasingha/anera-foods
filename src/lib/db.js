@@ -41,4 +41,6 @@ export const db = {
   createRole: (roleData) => callDb("createRole", [roleData]),
   updateRole: (roleId, updates) => callDb("updateRole", [roleId, updates]),
   deleteRole: (roleId) => callDb("deleteRole", [roleId]),
+  getSettings: () => callDb("getSettings"),
+  updateSettings: (updates) => callDb("updateSettings", [updates]),
 };

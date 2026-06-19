@@ -88,7 +88,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     setAccessToken(data.accessToken);
-    console.log(data.user , "login");
+    
     
     setUser(data.user);
     scheduleRefresh();

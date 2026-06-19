@@ -27,21 +27,21 @@ export default function HomePage() {
               "url('https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1920&q=80')",
           }}
         />
-        <div className="absolute inset-0 bg-[#1E3A2F]/90 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-[#0D0D0D]/90 mix-blend-multiply" />
 
         {/* Subtle glowing elements */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#C27D38]/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#E1A926]/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#D1E2D3]/10 rounded-full blur-3xl" />
 
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 animate-fade-in py-16">
-          <span className="inline-block text-xs uppercase tracking-[0.3em] text-[#C27D38] font-bold bg-[#FDFBF7]/10 px-4 py-1.5 rounded-full backdrop-blur-sm">
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 animate-fade-in py-16 z-10">
+          <span className="inline-block text-xs uppercase tracking-[0.3em] text-[#E1A926] font-bold bg-[#F2F2F2]/5 px-4 py-1.5 rounded-full backdrop-blur-sm">
             Est. 2026 • Taste of Sri Lanka
           </span>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold font-serif leading-tight max-w-4xl mx-auto text-[#FDFBF7]">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold font-serif leading-tight max-w-4xl mx-auto text-white drop-shadow-[0_10px_20px_rgba(0,0,0,0.7)]">
             Sri Lankan Culinary Heritage,{" "}
-            <span className="text-[#C27D38]">Refined.</span>
+            <span className="text-[#E1A926]">Refined.</span>
           </h1>
-          <p className="text-base sm:text-xl text-[#FDFBF7]/85 max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-base sm:text-xl text-white/90 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,0.4)]">
             Delighting tables with premium, hand-picked ready-to-eat products,
             traditional spice sambols, and healthy artisanal snacks.
           </p>
@@ -54,7 +54,7 @@ export default function HomePage() {
             </Link>
             <Link
               href="/about"
-              className="btn  bg-[#1E3A2F] text-white hover:bg-[#1E3A2F]  px-8 py-4 w-full sm:w-auto font-sans tracking-wide"
+              className="btn bg-[#1A1A1A] text-[#F2F2F2] hover:bg-[#1A1A1A]  px-8 py-4 w-full sm:w-auto font-sans tracking-wide"
             >
               Our Story
             </Link>
@@ -65,8 +65,8 @@ export default function HomePage() {
       {/* 2. VALUE PROPOSITIONS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="p-8 bg-white border border-[#1E3A2F]/5 rounded-2xl shadow-sm text-center space-y-4 hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 bg-[#1E3A2F]/5 text-[#1E3A2F] rounded-full flex items-center justify-center mx-auto">
+          <div className="premium-card p-8 text-center space-y-4">
+            <div className="w-12 h-12 bg-[#E1A926]/10 text-[#E1A926] rounded-full flex items-center justify-center mx-auto">
               <svg
                 className="w-6 h-6 stroke-2"
                 fill="none"
@@ -80,17 +80,17 @@ export default function HomePage() {
                 />
               </svg>
             </div>
-            <h3 className="text-lg font-bold font-serif text-[#1E3A2F]">
+            <h3 className="text-lg font-bold font-serif text-white">
               Premium Authenticity
             </h3>
-            <p className="text-xs text-gray-500 font-sans leading-relaxed">
+            <p className="text-sm text-gray-400 font-sans leading-relaxed">
               Made strictly with premium ingredients, following heirloom
               grandmother recipes to deliver genuine Sri Lankan flavor profile.
             </p>
           </div>
 
-          <div className="p-8 bg-white border border-[#1E3A2F]/5 rounded-2xl shadow-sm text-center space-y-4 hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 bg-[#1E3A2F]/5 text-[#1E3A2F] rounded-full flex items-center justify-center mx-auto">
+          <div className="premium-card p-8 text-center space-y-4">
+            <div className="w-12 h-12 bg-[#E1A926]/10 text-[#E1A926] rounded-full flex items-center justify-center mx-auto">
               <svg
                 className="w-6 h-6 stroke-2"
                 fill="none"
@@ -104,17 +104,17 @@ export default function HomePage() {
                 />
               </svg>
             </div>
-            <h3 className="text-lg font-bold font-serif text-[#1E3A2F]">
+            <h3 className="text-lg font-bold font-serif text-white">
               Instant Convenience
             </h3>
-            <p className="text-xs text-gray-500 font-sans leading-relaxed">
+            <p className="text-sm text-gray-400 font-sans leading-relaxed">
               Skip the long preparation hours. Our ready-to-eat range and roti
               mixes allow you to prepare delicious meals in under 10 minutes.
             </p>
           </div>
 
-          <div className="p-8 bg-white border border-[#1E3A2F]/5 rounded-2xl shadow-sm text-center space-y-4 hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 bg-[#1E3A2F]/5 text-[#1E3A2F] rounded-full flex items-center justify-center mx-auto">
+          <div className="premium-card p-8 text-center space-y-4">
+            <div className="w-12 h-12 bg-[#E1A926]/10 text-[#E1A926] rounded-full flex items-center justify-center mx-auto">
               <svg
                 className="w-6 h-6 stroke-2"
                 fill="none"
@@ -128,10 +128,10 @@ export default function HomePage() {
                 />
               </svg>
             </div>
-            <h3 className="text-lg font-bold font-serif text-[#1E3A2F]">
+            <h3 className="text-lg font-bold font-serif text-white">
               Cash On Delivery
             </h3>
-            <p className="text-xs text-gray-500 font-sans leading-relaxed">
+            <p className="text-sm text-gray-400 font-sans leading-relaxed">
               Order safely from the comfort of your home and pay only when our
               delivery partner hands the package directly to you.
             </p>
@@ -142,13 +142,13 @@ export default function HomePage() {
       {/* 3. CATEGORIES SECTIONS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <div className="text-center space-y-3">
-          <span className="text-xs uppercase tracking-widest text-[#C27D38] font-bold">
+          <span className="text-xs uppercase tracking-widest text-[#E1A926] font-bold">
             Curated Selections
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold font-serif text-[#1E3A2F]">
+          <h2 className="text-3xl sm:text-4xl font-bold font-serif text-[#F2F2F2]">
             Browse by Category
           </h2>
-          <div className="w-16 h-1 bg-[#C27D38] mx-auto rounded-full" />
+          <div className="w-16 h-1 bg-[#E1A926] mx-auto rounded-full" />
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -169,8 +169,10 @@ export default function HomePage() {
               <span className="text-[10px] tracking-wider uppercase text-[#C27D38] font-bold">
                 Crunchy & Savory
               </span>
-              <h3 className="text-xl font-bold font-serif">Artisanal Snacks</h3>
-              <p className="text-[11px] text-gray-300 font-sans">
+              <h3 className="text-xl font-bold font-serif text-white">
+                Artisanal Snacks
+              </h3>
+              <p className="text-sm text-gray-300 font-sans">
                 Premium Cashews, Bittergourd chips, halwa
               </p>
             </div>
@@ -193,8 +195,10 @@ export default function HomePage() {
               <span className="text-[10px] tracking-wider uppercase text-[#C27D38] font-bold">
                 Instant Delights
               </span>
-              <h3 className="text-xl font-bold font-serif">Ready-To-Eat</h3>
-              <p className="text-[11px] text-gray-300 font-sans">
+              <h3 className="text-xl font-bold font-serif text-white">
+                Ready-To-Eat
+              </h3>
+              <p className="text-sm text-gray-300 font-sans">
                 Roti mixes, cutlets, fast bites
               </p>
             </div>
@@ -217,8 +221,10 @@ export default function HomePage() {
               <span className="text-[10px] tracking-wider uppercase text-[#C27D38] font-bold">
                 Kitchen Staples
               </span>
-              <h3 className="text-xl font-bold font-serif">Specialty Items</h3>
-              <p className="text-[11px] text-gray-300 font-sans">
+              <h3 className="text-xl font-bold font-serif text-white">
+                Specialty Items
+              </h3>
+              <p className="text-sm text-gray-300 font-sans">
                 Katta sambol, Maldive fish mixes, Kithul treacle
               </p>
             </div>
@@ -324,13 +330,13 @@ export default function HomePage() {
                 </svg>
               ))}
             </div>
-            <p className="text-xs text-gray-500 font-sans italic leading-relaxed">
+            <p className="text-sm text-gray-500 font-sans italic leading-relaxed">
               &ldquo;The Pol Roti mix is a lifesaver. Preparing dinner is
               usually so hectic, but with this, I just add warm water, knead,
               and cook. Tastes exactly like home, very authentic!&rdquo;
             </p>
             <div className="flex items-center gap-3 pt-2">
-              <div className="w-10 h-10 rounded-full bg-[#1E3A2F]/10 flex items-center justify-center font-bold text-sm text-[#1E3A2F]">
+              <div className="w-10 h-10 rounded-full bg-[#E1A926]/10 flex items-center justify-center font-bold text-sm text-[#E1A926]">
                 ND
               </div>
               <div>
@@ -356,7 +362,7 @@ export default function HomePage() {
                 </svg>
               ))}
             </div>
-            <p className="text-xs text-gray-500 font-sans italic leading-relaxed">
+            <p className="text-sm text-gray-500 font-sans italic leading-relaxed">
               &ldquo;Ordered the spiced deviled cashews for a small
               get-together. The curry leaves infusion and the spice level are
               perfect. Everyone loved it. Definitely ordering again.&rdquo;
@@ -388,7 +394,7 @@ export default function HomePage() {
                 </svg>
               ))}
             </div>
-            <p className="text-xs text-gray-500 font-sans italic leading-relaxed">
+            <p className="text-sm text-gray-500 font-sans italic leading-relaxed">
               &ldquo;The Maldive Fish Sambol matches beautifully with bread or
               milk rice. The packaging is premium and seals the freshness
               properly. A true high-quality product.&rdquo;

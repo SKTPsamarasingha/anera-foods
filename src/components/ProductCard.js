@@ -15,11 +15,13 @@ export default function ProductCard({ product }) {
     setTimeout(() => setAdded(false), 2000);
   };
 
-  const isOutOfStock = product.stockQuantity === 0 || product.availabilityStatus === "out-of-stock";
+  const isOutOfStock =
+    product.stockQuantity === 0 ||
+    product.availabilityStatus === "out-of-stock";
   const isLowStock = product.stockQuantity > 0 && product.stockQuantity < 10;
 
   return (
-    <div className="premium-card group flex flex-col h-full bg-white relative">
+    <div className="premium-card group flex flex-col h-full relative">
       {/* Stock status badge */}
       {isOutOfStock && (
         <span className="absolute top-4 left-4 z-10 bg-[#D32F2F] text-white text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-md shadow-sm">
@@ -33,7 +35,10 @@ export default function ProductCard({ product }) {
       )}
 
       {/* Product Image Wrapper */}
-      <Link href={`/products/${product.id}`} className="block overflow-hidden relative aspect-square bg-gray-50">
+      <Link
+        href={`/products/${product.id}`}
+        className="block overflow-hidden relative aspect-square bg-gray-50"
+      >
         {product.images && product.images[0] ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -43,7 +48,7 @@ export default function ProductCard({ product }) {
             loading="lazy"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center bg-[#1E3A2F]/5 text-[#1E3A2F] font-serif font-bold">
+          <div className="w-full h-full flex items-center justify-center bg-[#E1A926]/10 text-[#E1A926] font-serif font-bold">
             {product.name}
           </div>
         )}
@@ -54,12 +59,16 @@ export default function ProductCard({ product }) {
       <div className="p-5 flex-1 flex flex-col">
         {/* Category & Rating */}
         <div className="flex justify-between items-center mb-2">
-          <span className="text-[10px] uppercase tracking-widest text-[#C27D38] font-bold font-sans">
+          <span className="text-[10px] uppercase tracking-widest text-[#E1A926] font-bold font-sans">
             {product.category}
           </span>
-          <div className="flex items-center text-[#E5A93B] gap-0.5">
+          <div className="flex items-center text-[#E1A926] gap-0.5">
             {[...Array(5)].map((_, i) => (
-              <svg key={i} className="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20">
+              <svg
+                key={i}
+                className="w-3.5 h-3.5 fill-current"
+                viewBox="0 0 20 20"
+              >
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
             ))}
@@ -67,22 +76,29 @@ export default function ProductCard({ product }) {
         </div>
 
         {/* Title */}
-        <Link href={`/products/${product.id}`} className="block group-hover:text-[#C27D38] transition-colors mb-2">
-          <h3 className="text-base font-bold font-serif text-[#1E3A2F] line-clamp-1 leading-snug">
+        <Link
+          href={`/products/${product.id}`}
+          className="block group-hover:text-[#E1A926] transition-colors mb-2"
+        >
+          <h3 className="text-base font-bold font-serif text-white line-clamp-1 leading-snug">
             {product.name}
           </h3>
         </Link>
 
         {/* Short description snippet */}
-        <p className="text-xs text-gray-500 font-sans line-clamp-2 mb-4 leading-relaxed flex-1">
+        <p className="text-sm text-gray-500 font-sans line-clamp-2 mb-4 leading-relaxed flex-1">
           {product.description}
         </p>
 
         {/* Price & Add to Cart button */}
-        <div className="flex justify-between items-center pt-3 border-t border-[#1E3A2F]/5 mt-auto">
+        <div className="flex justify-between items-center pt-3 border-t border-[#E1A926]/5 mt-auto">
           <div className="flex flex-col">
-            <span className="text-[10px] text-gray-400 font-sans uppercase tracking-wider">Price</span>
-            <span className="text-lg font-bold text-[#1E3A2F] font-serif">LKR {product.price.toLocaleString()}</span>
+            <span className="text-[10px] text-gray-400 font-sans uppercase tracking-wider">
+              Price
+            </span>
+            <span className="text-[14px] font-bold text-[#E1A926]">
+              LKR {product.price.toLocaleString()}
+            </span>
           </div>
 
           <button
@@ -92,16 +108,25 @@ export default function ProductCard({ product }) {
               isOutOfStock
                 ? "bg-gray-100 text-gray-400 cursor-not-allowed border-gray-200"
                 : added
-                ? "bg-[#2E7D32] text-white border-transparent"
-                : "bg-[#1E3A2F] text-[#FDFBF7] hover:bg-[#C27D38] border-transparent"
+                  ? "bg-[#2E7D32] text-white border-transparent"
+                  : "bg-[#0D0D0D] text-[#F2F2F2] hover:bg-[#E1A926] border-transparent"
             }`}
           >
             {isOutOfStock ? (
               "Sold Out"
             ) : added ? (
               <span className="flex items-center gap-1">
-                <svg className="w-3.5 h-3.5 stroke-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                <svg
+                  className="w-3.5 h-3.5 stroke-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M5 13l4 4L19 7"
+                  />
                 </svg>
                 Added
               </span>

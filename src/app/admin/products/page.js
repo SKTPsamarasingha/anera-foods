@@ -12,7 +12,7 @@ const DEFAULT_FORM = {
   description: "",
   weight: "",
   stockQuantity: "",
-  images: [""]
+  images: [""],
 };
 
 export default function AdminProductsPage() {
@@ -41,14 +41,14 @@ export default function AdminProductsPage() {
 
     if (search.trim()) {
       const q = search.toLowerCase().trim();
-      result = result.filter(p => 
-        p.name.toLowerCase().includes(q) || 
-        p.sku.toLowerCase().includes(q)
+      result = result.filter(
+        (p) =>
+          p.name.toLowerCase().includes(q) || p.sku.toLowerCase().includes(q),
       );
     }
 
     if (categoryFilter !== "all") {
-      result = result.filter(p => p.category === categoryFilter);
+      result = result.filter((p) => p.category === categoryFilter);
     }
 
     setFilteredProducts(result);
@@ -56,15 +56,15 @@ export default function AdminProductsPage() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setForm(prev => ({ ...prev, [name]: value }));
+    setForm((prev) => ({ ...prev, [name]: value }));
     if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: "" }));
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
   const handleImageChange = (e) => {
     const val = e.target.value;
-    setForm(prev => ({ ...prev, images: [val] }));
+    setForm((prev) => ({ ...prev, images: [val] }));
   };
 
   const handleEdit = (prod) => {
@@ -77,7 +77,7 @@ export default function AdminProductsPage() {
       description: prod.description,
       weight: prod.weight,
       stockQuantity: prod.stockQuantity.toString(),
-      images: prod.images || [""]
+      images: prod.images || [""],
     });
     setErrors({});
     setIsFormOpen(true);
@@ -94,7 +94,7 @@ export default function AdminProductsPage() {
     if (!form.name.trim()) newErrors.name = "Product name is required";
     if (!form.sku.trim()) newErrors.sku = "SKU code is required";
     if (!form.weight.trim()) newErrors.weight = "Weight indicator is required";
-    
+
     const priceNum = parseFloat(form.price);
     if (isNaN(priceNum) || priceNum <= 0) {
       newErrors.price = "Enter a valid product price";
@@ -122,7 +122,11 @@ export default function AdminProductsPage() {
       description: form.description.trim(),
       weight: form.weight.trim(),
       stockQuantity: parseInt(form.stockQuantity),
-      images: form.images[0].trim() ? [form.images[0].trim()] : ["https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=80"]
+      images: form.images[0].trim()
+        ? [form.images[0].trim()]
+        : [
+            "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=80",
+          ],
     };
 
     await db.saveProduct(savedProd);
@@ -139,17 +143,20 @@ export default function AdminProductsPage() {
 
   return (
     <div className="space-y-6 font-sans">
-      
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-2xl font-bold font-serif text-[#1E3A2F]">Product Management</h1>
-          <p className="text-xs text-gray-500">Add, edit, or archive catalog food products.</p>
+          <h1 className="text-2xl font-bold font-serif text-[#1E3A2F]">
+            Product Management
+          </h1>
+          <p className="text-xs text-gray-500">
+            Add, edit, or archive catalog food products.
+          </p>
         </div>
         {!isFormOpen && (
           <button
             onClick={handleAddNew}
-            className="btn btn-primary text-xs py-2 px-5 font-semibold"
+            className="btn btn-primary text-white text-xs py-2 px-5 font-semibold"
           >
             Add New Product
           </button>
@@ -158,7 +165,7 @@ export default function AdminProductsPage() {
 
       {isFormOpen ? (
         // EDIT / CREATE FORM PANEL
-        <div className="bg-white p-6 sm:p-8 rounded-2xl border border-gray-100 shadow-md max-w-2xl animate-fade-in space-y-6">
+        <div className="bg-white p-6 sm:p-8 rounded-2xl border border-gray-100 shadow-md max-w-2xl mx-auto animate-fade-in space-y-6">
           <h2 className="text-lg font-bold font-serif text-[#1E3A2F] border-b border-gray-100 pb-3">
             {form.id ? "Edit Product Details" : "Create New Product"}
           </h2>
@@ -166,33 +173,45 @@ export default function AdminProductsPage() {
           <form onSubmit={handleSubmit} className="space-y-4 text-xs font-sans">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1">
-                <label className="font-semibold text-gray-600">Product Name *</label>
+                <label className="font-semibold text-gray-600">
+                  Product Name *
+                </label>
                 <input
                   type="text"
                   name="name"
                   value={form.name}
                   onChange={handleInputChange}
-                  className={`w-full p-2.5 border rounded-lg focus:outline-none focus:border-[#C27D38] ${
+                  className={`w-full p-2.5 border rounded-lg placeholder-gray-400 focus:outline-none focus:border-[#C27D38] ${
                     errors.name ? "border-red-500" : "border-gray-200"
                   }`}
                   placeholder="e.g. Spiced Deviled Cashews"
                 />
-                {errors.name && <span className="text-[10px] text-red-500 block">{errors.name}</span>}
+                {errors.name && (
+                  <span className="text-[10px] text-red-500 block">
+                    {errors.name}
+                  </span>
+                )}
               </div>
 
               <div className="space-y-1">
-                <label className="font-semibold text-gray-600">SKU Code *</label>
+                <label className="font-semibold text-gray-600">
+                  SKU Code *
+                </label>
                 <input
                   type="text"
                   name="sku"
                   value={form.sku}
                   onChange={handleInputChange}
-                  className={`w-full p-2.5 border rounded-lg focus:outline-none focus:border-[#C27D38] ${
+                  className={`w-full p-2.5 border rounded-lg placeholder-gray-400 focus:outline-none focus:border-[#C27D38] ${
                     errors.sku ? "border-red-500" : "border-gray-200"
                   }`}
                   placeholder="e.g. ANR-CAS-DEV-250"
                 />
-                {errors.sku && <span className="text-[10px] text-red-500 block">{errors.sku}</span>}
+                {errors.sku && (
+                  <span className="text-[10px] text-red-500 block">
+                    {errors.sku}
+                  </span>
+                )}
               </div>
             </div>
 
@@ -203,7 +222,7 @@ export default function AdminProductsPage() {
                   name="category"
                   value={form.category}
                   onChange={handleInputChange}
-                  className="w-full p-2.5 border border-gray-200 rounded-lg focus:outline-none focus:border-[#C27D38] bg-white"
+                  className="w-full p-2.5 border border-gray-200 rounded-lg focus:outline-none focus:border-[#C27D38] bg-white placeholder-gray-400"
                 >
                   <option value="snacks">Artisanal Snacks</option>
                   <option value="ready-to-eat">Ready-To-Eat</option>
@@ -212,18 +231,24 @@ export default function AdminProductsPage() {
               </div>
 
               <div className="space-y-1">
-                <label className="font-semibold text-gray-600">Price (LKR) *</label>
+                <label className="font-semibold text-gray-600">
+                  Price (LKR) *
+                </label>
                 <input
                   type="number"
                   name="price"
                   value={form.price}
                   onChange={handleInputChange}
-                  className={`w-full p-2.5 border rounded-lg focus:outline-none focus:border-[#C27D38] ${
+                  className={`w-full p-2.5 border rounded-lg placeholder-gray-400 focus:outline-none focus:border-[#C27D38] ${
                     errors.price ? "border-red-500" : "border-gray-200"
                   }`}
                   placeholder="e.g. 1850"
                 />
-                {errors.price && <span className="text-[10px] text-red-500 block">{errors.price}</span>}
+                {errors.price && (
+                  <span className="text-[10px] text-red-500 block">
+                    {errors.price}
+                  </span>
+                )}
               </div>
 
               <div className="space-y-1">
@@ -233,51 +258,65 @@ export default function AdminProductsPage() {
                   name="weight"
                   value={form.weight}
                   onChange={handleInputChange}
-                  className={`w-full p-2.5 border rounded-lg focus:outline-none focus:border-[#C27D38] ${
+                  className={`w-full p-2.5 border rounded-lg placeholder-gray-400 focus:outline-none focus:border-[#C27D38] ${
                     errors.weight ? "border-red-500" : "border-gray-200"
                   }`}
                   placeholder="e.g. 250g or 750ml"
                 />
-                {errors.weight && <span className="text-[10px] text-red-500 block">{errors.weight}</span>}
+                {errors.weight && (
+                  <span className="text-[10px] text-red-500 block">
+                    {errors.weight}
+                  </span>
+                )}
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1">
-                <label className="font-semibold text-gray-600">Stock Quantity *</label>
+                <label className="font-semibold text-gray-600">
+                  Stock Quantity *
+                </label>
                 <input
                   type="number"
                   name="stockQuantity"
                   value={form.stockQuantity}
                   onChange={handleInputChange}
-                  className={`w-full p-2.5 border rounded-lg focus:outline-none focus:border-[#C27D38] ${
+                  className={`w-full p-2.5 border rounded-lg placeholder-gray-400 focus:outline-none focus:border-[#C27D38] ${
                     errors.stockQuantity ? "border-red-500" : "border-gray-200"
                   }`}
                   placeholder="e.g. 45"
                 />
-                {errors.stockQuantity && <span className="text-[10px] text-red-500 block">{errors.stockQuantity}</span>}
+                {errors.stockQuantity && (
+                  <span className="text-[10px] text-red-500 block">
+                    {errors.stockQuantity}
+                  </span>
+                )}
               </div>
 
               <div className="space-y-1">
-                <label className="font-semibold text-gray-600">Product Image URL</label>
+                <label className="font-semibold text-gray-600">
+                  Product Image URL
+                </label>
                 <input
                   type="text"
                   value={form.images[0]}
                   onChange={handleImageChange}
-                  className="w-full p-2.5 border border-gray-200 rounded-lg focus:outline-none focus:border-[#C27D38]"
+                  className="w-full p-2.5 border border-gray-200 rounded-lg placeholder-gray-400 focus:outline-none focus:border-[#C27D38]"
                   placeholder="Paste Unsplash or static image link..."
                 />
               </div>
             </div>
 
             <div className="space-y-1">
-              <label className="font-semibold text-gray-600">Product Description</label>
+              <label className="font-semibold text-gray-600">
+                Product Description
+              </label>
               <textarea
                 name="description"
                 value={form.description}
                 onChange={handleInputChange}
                 rows={4}
-                className="w-full p-2.5 border border-gray-200 rounded-lg focus:outline-none focus:border-[#C27D38]"
+                className="w-full p-2.5 border border-gray-200 rounded-lg placeholder-gray-400 focus:outline-none focus:border-[#C27D38]"
                 placeholder="Product attributes and details..."
               />
             </div>
@@ -310,19 +349,31 @@ export default function AdminProductsPage() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search products..."
-                className="w-full pl-9 pr-4 py-2 text-xs border border-gray-200 rounded-lg focus:outline-none focus:border-[#C27D38]"
+                className="w-full pl-9 pr-4 py-2 text-xs border border-gray-200 rounded-lg placeholder-gray-400 focus:outline-none focus:border-[#C27D38]"
               />
-              <svg className="w-4 h-4 text-gray-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              <svg
+                className="w-4 h-4 text-gray-400 absolute left-3 top-2.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
               </svg>
             </div>
 
             <div className="flex items-center gap-2 w-full sm:w-auto">
-              <label className="text-xs text-gray-400 whitespace-nowrap">Category:</label>
+              <label className="text-xs text-gray-400 whitespace-nowrap">
+                Category:
+              </label>
               <select
                 value={categoryFilter}
                 onChange={(e) => setCategoryFilter(e.target.value)}
-                className="p-2 border border-gray-200 rounded-lg text-xs focus:outline-none focus:border-[#C27D38] bg-white w-full sm:w-auto"
+                className="p-2 border border-gray-200 rounded-lg text-xs  bg-black w-full sm:w-auto"
               >
                 <option value="all">All Categories</option>
                 <option value="snacks">Artisanal Snacks</option>
@@ -348,36 +399,54 @@ export default function AdminProductsPage() {
               <tbody className="divide-y divide-gray-50 text-gray-600">
                 {filteredProducts.length === 0 ? (
                   <tr>
-                    <td colSpan={6} className="py-6 text-center text-gray-400">No products found.</td>
+                    <td colSpan={6} className="py-6 text-center text-gray-400">
+                      No products found.
+                    </td>
                   </tr>
                 ) : (
-                  filteredProducts.map(p => (
+                  filteredProducts.map((p) => (
                     <tr key={p.id} className="hover:bg-gray-50/50">
                       <td className="py-3 font-semibold text-[#1E3A2F] flex items-center gap-3">
                         <div className="w-8 h-8 rounded bg-gray-50 overflow-hidden relative flex-shrink-0">
                           {p.images && p.images[0] ? (
                             // eslint-disable-next-line @next/next/no-img-element
-                            <img src={p.images[0]} alt={p.name} className="w-full h-full object-cover" />
+                            <img
+                              src={p.images[0]}
+                              alt={p.name}
+                              className="w-full h-full object-cover"
+                            />
                           ) : (
-                            <span className="font-bold flex items-center justify-center h-full text-[#1E3A2F]">{p.name[0]}</span>
+                            <span className="font-bold flex items-center justify-center h-full text-[#1E3A2F]">
+                              {p.name[0]}
+                            </span>
                           )}
                         </div>
                         <div>
-                          <span className="font-semibold text-gray-800 line-clamp-1">{p.name}</span>
-                          <span className="text-[10px] text-gray-400">{p.weight}</span>
+                          <span className="font-semibold text-gray-800 line-clamp-1">
+                            {p.name}
+                          </span>
+                          <span className="text-[10px] text-gray-400">
+                            {p.weight}
+                          </span>
                         </div>
                       </td>
                       <td className="py-3 font-mono text-[10px]">{p.sku}</td>
-                      <td className="py-3 uppercase text-[10px] font-bold text-[#C27D38]">{p.category}</td>
-                      <td className="py-3 font-semibold">LKR {p.price.toLocaleString()}</td>
+                      <td className="py-3 uppercase text-[10px] font-bold text-[#C27D38]">
+                        {p.category}
+                      </td>
+                      <td className="py-3 font-semibold">
+                        LKR {p.price.toLocaleString()}
+                      </td>
                       <td className="py-3">
-                        <span className={`px-2 py-0.5 rounded font-bold ${
-                          p.stockQuantity === 0 
-                            ? "bg-red-100 text-red-800" 
-                            : p.stockQuantity < 10 
-                            ? "bg-orange-100 text-orange-800" 
-                            : "bg-green-100 text-green-800"
-                        }`}>
+                        <span
+                          className={`px-2 py-0.5 rounded font-bold ${
+                            p.stockQuantity === 0
+                              ? "bg-red-100 text-red-800"
+                              : p.stockQuantity < 10
+                                ? "bg-orange-100 text-orange-800"
+                                : "bg-green-100 text-green-800"
+                          }`}
+                        >
                           {p.stockQuantity}
                         </span>
                       </td>
@@ -403,7 +472,6 @@ export default function AdminProductsPage() {
           </div>
         </div>
       )}
-
     </div>
   );
 }

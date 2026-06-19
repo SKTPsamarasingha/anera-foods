@@ -31,7 +31,10 @@ export default function AdminRolesPage() {
   const loadData = async () => {
     setLoading(true);
     try {
-      const [rolesData, usersData] = await Promise.all([db.getRoles(), db.getAllUsers()]);
+      const [rolesData, usersData] = await Promise.all([
+        db.getRoles(),
+        db.getAllUsers(),
+      ]);
       setRoles(rolesData);
       setUsers(usersData);
     } catch (err) {
@@ -47,14 +50,18 @@ export default function AdminRolesPage() {
 
   const selectRole = (role) => {
     setSelectedRole(role);
-    setEditPermissions(role.permissions.includes("*") ? [...ALL_PERMISSIONS] : [...role.permissions]);
+    setEditPermissions(
+      role.permissions.includes("*")
+        ? [...ALL_PERMISSIONS]
+        : [...role.permissions],
+    );
     setMessage("");
     setError("");
   };
 
   const togglePermission = (perm) => {
     setEditPermissions((prev) =>
-      prev.includes(perm) ? prev.filter((p) => p !== perm) : [...prev, perm]
+      prev.includes(perm) ? prev.filter((p) => p !== perm) : [...prev, perm],
     );
   };
 
@@ -103,7 +110,8 @@ export default function AdminRolesPage() {
   };
 
   const deleteRole = async (roleId) => {
-    if (!confirm("Delete this role? It must not be assigned to any user.")) return;
+    if (!confirm("Delete this role? It must not be assigned to any user."))
+      return;
     setSaving(true);
     try {
       const ok = await db.deleteRole(roleId);
@@ -146,7 +154,7 @@ export default function AdminRolesPage() {
   if (loading) {
     return (
       <div className="flex justify-center py-16">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#1E3A2F]" />
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#E1A926]" />
       </div>
     );
   }
@@ -154,9 +162,12 @@ export default function AdminRolesPage() {
   return (
     <div className="space-y-8 font-sans">
       <div>
-        <h1 className="text-2xl font-bold font-serif text-[#1E3A2F]">Roles & Permissions</h1>
+        <h1 className="text-2xl font-bold font-serif text-[#F2F2F2]">
+          Roles & Permissions
+        </h1>
         <p className="text-xs text-gray-500">
-          Super admins can create roles, assign permissions, and change user access levels.
+          Super admins can create roles, assign permissions, and change user
+          access levels.
         </p>
       </div>
 
@@ -171,7 +182,7 @@ export default function AdminRolesPage() {
       <div className="grid lg:grid-cols-3 gap-6">
         {/* Role list */}
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 space-y-4">
-          <h2 className="font-bold text-[#1E3A2F] text-sm">Roles</h2>
+          <h2 className="font-bold text-[#F2F2F2] text-sm">Roles</h2>
           <div className="space-y-2">
             {roles.map((role) => (
               <button
@@ -180,11 +191,13 @@ export default function AdminRolesPage() {
                 onClick={() => selectRole(role)}
                 className={`w-full text-left px-4 py-3 rounded-xl border transition-all ${
                   selectedRole?.id === role.id
-                    ? "border-[#C27D38] bg-[#C27D38]/5"
+                    ? "border-[#E1A926] bg-[#E1A926]/5"
                     : "border-gray-100 hover:border-gray-200"
                 }`}
               >
-                <span className="font-semibold text-gray-800 block">{role.name}</span>
+                <span className="font-semibold text-gray-800 block">
+                  {role.name}
+                </span>
                 <span className="text-[10px] text-gray-400 uppercase tracking-wider">
                   {role.id}
                   {role.isSystem ? " · system" : ""}
@@ -194,21 +207,34 @@ export default function AdminRolesPage() {
           </div>
 
           {isSuperAdmin && (
-            <form onSubmit={createRole} className="pt-4 border-t border-gray-100 space-y-3">
-              <h3 className="text-xs font-bold text-gray-500 uppercase">New Role</h3>
+            <form
+              onSubmit={createRole}
+              className="pt-4 border-t border-gray-100 space-y-3"
+            >
+              <h3 className="text-xs font-bold text-gray-500 uppercase">
+                New Role
+              </h3>
               <input
                 value={newRole.id}
-                onChange={(e) => setNewRole((p) => ({ ...p, id: e.target.value }))}
+                onChange={(e) =>
+                  setNewRole((p) => ({ ...p, id: e.target.value }))
+                }
                 placeholder="role_id (e.g. warehouse)"
                 className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg"
               />
               <input
                 value={newRole.name}
-                onChange={(e) => setNewRole((p) => ({ ...p, name: e.target.value }))}
+                onChange={(e) =>
+                  setNewRole((p) => ({ ...p, name: e.target.value }))
+                }
                 placeholder="Display name"
                 className="w-full px-3 py-2 text-xs border border-gray-200 rounded-lg"
               />
-              <button type="submit" disabled={saving} className="btn btn-primary w-full py-2 text-xs">
+              <button
+                type="submit"
+                disabled={saving}
+                className="btn btn-primary w-full py-2 text-xs"
+              >
                 Add Role
               </button>
             </form>
@@ -221,7 +247,9 @@ export default function AdminRolesPage() {
             <>
               <div className="flex justify-between items-start">
                 <div>
-                  <h2 className="font-bold text-[#1E3A2F]">{selectedRole.name}</h2>
+                  <h2 className="font-bold text-[#F2F2F2]">
+                    {selectedRole.name}
+                  </h2>
                   <p className="text-xs text-gray-400">ID: {selectedRole.id}</p>
                 </div>
                 {isSuperAdmin && !selectedRole.isSystem && (
@@ -237,7 +265,8 @@ export default function AdminRolesPage() {
 
               {selectedRole.id === "superadmin" ? (
                 <p className="text-sm text-gray-500 bg-gray-50 p-4 rounded-xl">
-                  Super Admin has full access to all features. Permissions cannot be edited.
+                  Super Admin has full access to all features. Permissions
+                  cannot be edited.
                 </p>
               ) : (
                 <>
@@ -283,7 +312,9 @@ export default function AdminRolesPage() {
       {/* User role assignment */}
       {isSuperAdmin && (
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 space-y-4">
-          <h2 className="font-bold text-[#1E3A2F] text-sm">Assign User Roles</h2>
+          <h2 className="font-bold text-[#F2F2F2] text-sm">
+            Assign User Roles
+          </h2>
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
               <thead>
@@ -297,10 +328,12 @@ export default function AdminRolesPage() {
               <tbody className="divide-y divide-gray-50">
                 {users.map((u) => (
                   <tr key={u.uuid}>
-                    <td className="py-3 font-semibold text-gray-800">{u.name}</td>
+                    <td className="py-3 font-semibold text-gray-800">
+                      {u.name}
+                    </td>
                     <td className="py-3 text-gray-500">{u.email}</td>
                     <td className="py-3">
-                      <span className="bg-[#1E3A2F]/10 text-[#1E3A2F] px-2 py-0.5 rounded text-[10px] font-bold uppercase">
+                      <span className="bg-[#E1A926]/10 text-[#E1A926] px-2 py-0.5 rounded text-[10px] font-bold uppercase">
                         {u.roleId}
                       </span>
                     </td>

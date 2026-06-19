@@ -8,6 +8,7 @@ const CartContext = createContext(null);
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [district, setDistrict] = useState("Colombo");
+  const [settings, setSettings] = useState(null);
   const [isMounted, setIsMounted] = useState(false);
 
   // Load cart on client mount
@@ -21,6 +22,15 @@ export const CartProvider = ({ children }) => {
         console.error("Failed to parse cart items:", e);
       }
     }
+    // load settings for shipping/loyalty
+    (async () => {
+      try {
+        const s = await db.getSettings();
+        setSettings(s || {});
+      } catch (e) {
+        console.error("Failed to load settings:", e);
+      }
+    })();
   }, []);
 
   // Save cart to local storage
@@ -38,7 +48,10 @@ export const CartProvider = ({ children }) => {
     if (existingIndex >= 0) {
       const newQty = updatedCart[existingIndex].quantity + quantity;
       // Cap at stockQuantity if stock is limited
-      if (product.stockQuantity !== undefined && newQty > product.stockQuantity) {
+      if (
+        product.stockQuantity !== undefined &&
+        newQty > product.stockQuantity
+      ) {
         updatedCart[existingIndex].quantity = product.stockQuantity;
       } else {
         updatedCart[existingIndex].quantity = newQty;
@@ -51,7 +64,7 @@ export const CartProvider = ({ children }) => {
         price: product.price,
         weight: product.weight,
         images: product.images,
-        quantity: Math.min(quantity, product.stockQuantity || 99)
+        quantity: Math.min(quantity, product.stockQuantity || 99),
       });
     }
 
@@ -60,7 +73,7 @@ export const CartProvider = ({ children }) => {
       productId: product.id,
       name: product.name,
       price: product.price,
-      quantity
+      quantity,
     });
   };
 
@@ -75,7 +88,7 @@ export const CartProvider = ({ children }) => {
       return;
     }
     const updatedCart = cartItems.map((item) =>
-      item.id === productId ? { ...item, quantity } : item
+      item.id === productId ? { ...item, quantity } : item,
     );
     saveCart(updatedCart);
   };
@@ -87,23 +100,44 @@ export const CartProvider = ({ children }) => {
   // Calculations
   const cartSubtotal = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
-    0
+    0,
   );
 
   const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
-  // Sri Lanka shipping pricing matrix
-  // Western Province: Gampaha, Colombo, Kalutara -> LKR 350
-  // Other regions -> LKR 450
+  // Shipping calculation uses settings.deliveryZones or settings.deliveryFees when present
   const getShippingCost = (selectedDistrict) => {
+    const cleanDist = (selectedDistrict || "").toLowerCase().trim();
+
+    // If settings define deliveryZones as array of { district, fee }
+    if (settings?.deliveryZones && Array.isArray(settings.deliveryZones)) {
+      const match = settings.deliveryZones.find((z) => {
+        if (!z) return false;
+        const d = (z.district || z.name || "").toLowerCase().trim();
+        return d && cleanDist && d === cleanDist;
+      });
+      if (match) return Number(match.fee) || 0;
+    }
+
+    // If a single deliveryFees value is set, use it
+    if (
+      settings?.deliveryFees !== undefined &&
+      settings?.deliveryFees !== null
+    ) {
+      return Number(settings.deliveryFees) || 0;
+    }
+
+    // Fallback: Western Province cheaper, others higher
     const westernProvinceDistricts = ["colombo", "gampaha", "kalutara"];
-    if (!selectedDistrict) return 350;
-    const cleanDist = selectedDistrict.toLowerCase().trim();
+    if (!cleanDist) return 350;
     return westernProvinceDistricts.includes(cleanDist) ? 350 : 450;
   };
 
   const shippingCost = cartItems.length > 0 ? getShippingCost(district) : 0;
   const grandTotal = cartSubtotal + shippingCost;
+
+  const loyaltyPointsPerLKR = Number(settings?.loyaltyPointsPerLKR || 0);
+  const loyaltyPointsEarned = Math.floor(cartSubtotal * loyaltyPointsPerLKR);
 
   return (
     <CartContext.Provider
@@ -111,6 +145,8 @@ export const CartProvider = ({ children }) => {
         cartItems,
         district,
         setDistrict,
+        settings,
+        loyaltyPointsEarned,
         addToCart,
         removeFromCart,
         updateQuantity,
@@ -120,7 +156,7 @@ export const CartProvider = ({ children }) => {
         shippingCost,
         grandTotal,
         getShippingCost,
-        isMounted
+        isMounted,
       }}
     >
       {children}

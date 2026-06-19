@@ -21,26 +21,7 @@ export default function Header() {
   if (isAdminRoute) {
     // Return different Header for Admin
     return (
-      <header className="sticky top-0 z-50 glass border-b border-gray-200 py-4 px-6 flex justify-between items-center">
-        <div className="flex items-center gap-3">
-          <Link href="/" className="flex items-center gap-2">
-            <span className="text-xl font-bold font-serif text-[#1E3A2F] tracking-wide">ANERA</span>
-            <span className="text-xs uppercase bg-[#C27D38] text-white px-2 py-0.5 rounded font-sans tracking-widest font-semibold">ADMIN</span>
-          </Link>
-          {roleLabel && (
-            <span className="text-xs text-gray-500 font-sans border-l border-gray-300 pl-3">
-              Role: <strong className="text-[#1E3A2F]">{roleLabel}</strong>
-            </span>
-          )}
-        </div>
-        <div className="flex items-center gap-4">
-          <Link href="/" className="text-sm font-medium text-gray-600 hover:text-[#1E3A2F] transition-colors flex items-center gap-1">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            Back to Storefront
-          </Link>
-        </div>
+      <header className="">
       </header>
     );
   }
@@ -96,14 +77,7 @@ export default function Header() {
               >
                 Track Order
               </Link>
-              <Link
-                href="/faq"
-                className={`text-sm font-semibold tracking-wide uppercase transition-colors duration-200 ${
-                  isActive("/faq") ? "text-[#C27D38]" : "text-[#1E3A2F]/80 hover:text-[#1E3A2F]"
-                }`}
-              >
-                FAQs
-              </Link>
+            
               <Link
                 href="/contact"
                 className={`text-sm font-semibold tracking-wide uppercase transition-colors duration-200 ${

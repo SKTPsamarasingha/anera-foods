@@ -9,6 +9,7 @@ const PUBLIC_ACTIONS = new Set([
   "createOrder",
   "logPixelEvent",
   "trackOrder",
+  "getSettings",
 ]);
 
 const AUTHENTICATED_ACTIONS = new Set(["getOrdersByCustomer"]);
@@ -29,6 +30,7 @@ const ACTION_PERMISSIONS = {
   updateRole: PERMISSIONS.ROLES,
   deleteRole: PERMISSIONS.ROLES,
   seedDatabase: PERMISSIONS.ROLES,
+  updateSettings: PERMISSIONS.ROLES,
 };
 
 export async function POST(request) {

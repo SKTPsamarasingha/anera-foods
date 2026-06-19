@@ -177,11 +177,11 @@ export default function CheckoutPage() {
   if (!isMounted) {
     return (
       <div className="max-w-7xl mx-auto px-4 py-24 text-center">
-        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#1E3A2F] mx-auto"></div>
+        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#E1A926] mx-auto"></div>
         <p className="mt-4 text-xs text-gray-500">Initializing checkout...</p>
       </div>
     );
-  }
+  } 
 
   // 1. ORDER CONFIRMED DISPLAY (Success state)
   if (placedOrder) {
@@ -203,10 +203,10 @@ export default function CheckoutPage() {
             </svg>
           </div>
           <div className="space-y-2">
-            <span className="text-xs uppercase font-bold text-[#C27D38] tracking-widest font-sans">
+            <span className="text-xs uppercase font-bold text-[#E1A926] tracking-widest font-sans">
               Payment Mode: Cash on Delivery
             </span>
-            <h1 className="text-3xl font-bold font-serif text-[#1E3A2F]">
+            <h1 className="text-3xl font-bold font-serif text-black">
               Order Confirmed!
             </h1>
             <p className="text-xs text-gray-500 font-sans">
@@ -219,26 +219,26 @@ export default function CheckoutPage() {
             </p>
           </div>
 
-          <div className="bg-[#F0F4F1] p-5 rounded-2xl text-left border border-[#1E3A2F]/5 space-y-3 font-sans text-xs">
+          <div className="bg-[#1A1A1A] p-5 rounded-2xl text-left border border-[#E1A926]/5 space-y-3 font-sans text-xs">
             <div className="flex justify-between">
               <span className="text-gray-500">Order Number:</span>
-              <strong className="text-[#1E3A2F]">
+              <strong className="text-[#F2F2F2]">
                 {placedOrder.orderNumber}
               </strong>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-500">Estimated Delivery:</span>
-              <strong className="text-[#1E3A2F]">2 - 4 Business Days</strong>
+              <strong className="text-[#F2F2F2]">2 - 4 Business Days</strong>
             </div>
             <div className="flex justify-between">
               <span className="text-gray-500">Delivery Address:</span>
-              <span className="text-right text-[#1E3A2F] max-w-xs font-semibold">
+              <span className="text-right text-[#F2F2F2] max-w-xs font-semibold">
                 {placedOrder.customer.address}, {placedOrder.customer.city}
               </span>
             </div>
             <div className="flex justify-between border-t border-gray-200 pt-3">
               <span className="text-gray-600 font-semibold">Total Amount:</span>
-              <strong className="text-sm text-[#C27D38]">
+              <strong className="text-sm text-[#E1A926]">
                 LKR {placedOrder.totalAmount.toLocaleString()}
               </strong>
             </div>
@@ -280,7 +280,7 @@ export default function CheckoutPage() {
             d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
           />
         </svg>
-        <h2 className="text-2xl font-bold font-serif text-[#1E3A2F]">
+        <h2 className="text-2xl font-bold font-serif text-[#F2F2F2]">
           Your Cart is Empty
         </h2>
         <p className="text-xs text-gray-500 max-w-sm mx-auto font-sans">
@@ -300,7 +300,7 @@ export default function CheckoutPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8 animate-fade-in">
       <div className="text-center sm:text-left space-y-2">
-        <h1 className="text-3xl font-bold font-serif text-[#1E3A2F]">
+        <h1 className="text-3xl font-bold font-serif text-[#F2F2F2]">
           Secure Checkout
         </h1>
         <p className="text-xs text-gray-500 font-sans">
@@ -315,9 +315,9 @@ export default function CheckoutPage() {
       >
         {/* Left: Shipping Details Fields */}
         <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl border border-gray-100 shadow-sm space-y-6">
-          <h2 className="text-lg font-bold font-serif text-[#1E3A2F] border-b border-gray-100 pb-3 flex items-center gap-2">
+          <h2 className="text-lg font-bold font-serif text-black border-b border-gray-100 pb-3 flex items-center gap-2">
             <svg
-              className="w-5 h-5 text-[#C27D38]"
+              className="w-5 h-5 text-[#E1A926]"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -342,7 +342,7 @@ export default function CheckoutPage() {
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleInputChange}
-                className={`w-full p-2.5 text-xs border rounded-lg focus:outline-none focus:border-[#C27D38] font-sans ${
+                className={`text-black w-full p-2.5 text-xs border rounded-lg focus:outline-none focus:border-[#E1A926] font-sans ${
                   errors.firstName ? "border-[#D32F2F]" : "border-gray-200"
                 }`}
                 placeholder="John"
@@ -363,7 +363,7 @@ export default function CheckoutPage() {
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleInputChange}
-                className={`w-full p-2.5 text-xs border rounded-lg focus:outline-none focus:border-[#C27D38] font-sans ${
+                className={`text-black w-full p-2.5 text-xs border rounded-lg focus:outline-none focus:border-[#E1A926] font-sans ${
                   errors.lastName ? "border-[#D32F2F]" : "border-gray-200"
                 }`}
                 placeholder="Doe"
@@ -386,7 +386,7 @@ export default function CheckoutPage() {
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
-                className={`w-full p-2.5 text-xs border rounded-lg focus:outline-none focus:border-[#C27D38] font-sans ${
+                className={`text-black w-full p-2.5 text-xs border rounded-lg focus:outline-none focus:border-[#E1A926] font-sans ${
                   errors.phone ? "border-[#D32F2F]" : "border-gray-200"
                 }`}
                 placeholder="e.g. 0771234567"
@@ -407,7 +407,7 @@ export default function CheckoutPage() {
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className={`w-full p-2.5 text-xs border rounded-lg focus:outline-none focus:border-[#C27D38] font-sans ${
+                className={`text-black w-full p-2.5 text-xs border rounded-lg focus:outline-none focus:border-[#E1A926] font-sans ${
                   errors.email ? "border-[#D32F2F]" : "border-gray-200"
                 }`}
                 placeholder="john.doe@example.com"
@@ -429,7 +429,7 @@ export default function CheckoutPage() {
               name="address"
               value={formData.address}
               onChange={handleInputChange}
-              className={`w-full p-2.5 text-xs border rounded-lg focus:outline-none focus:border-[#C27D38] font-sans ${
+              className={`text-black w-full p-2.5 text-xs border rounded-lg focus:outline-none focus:border-[#E1A926] font-sans ${
                 errors.address ? "border-[#D32F2F]" : "border-gray-200"
               }`}
               placeholder="e.g. No. 45, Temple Road"
@@ -451,7 +451,7 @@ export default function CheckoutPage() {
                 name="city"
                 value={formData.city}
                 onChange={handleInputChange}
-                className={`w-full p-2.5 text-xs border rounded-lg focus:outline-none focus:border-[#C27D38] font-sans ${
+                className={`text-black w-full p-2.5 text-xs border rounded-lg focus:outline-none focus:border-[#E1A926] font-sans ${
                   errors.city ? "border-[#D32F2F]" : "border-gray-200"
                 }`}
                 placeholder="e.g. Colombo 03"
@@ -470,7 +470,7 @@ export default function CheckoutPage() {
               <select
                 value={district}
                 onChange={handleDistrictChange}
-                className="w-full p-2.5 text-xs border border-gray-200 rounded-lg focus:outline-none focus:border-[#C27D38] font-sans bg-white"
+                className="text-black w-full p-2.5 text-xs border border-gray-200 rounded-lg focus:outline-none focus:border-[#E1A926] font-sans bg-white"
               >
                 {SRI_LANKA_DISTRICTS.map((dist) => (
                   <option key={dist} value={dist}>
@@ -490,14 +490,14 @@ export default function CheckoutPage() {
               value={formData.notes}
               onChange={handleInputChange}
               rows={3}
-              className="w-full p-2.5 text-xs border border-gray-200 rounded-lg focus:outline-none focus:border-[#C27D38] font-sans"
+              className="text-black w-full p-2.5 text-xs border border-gray-200 rounded-lg focus:outline-none focus:border-[#E1A926] font-sans"
               placeholder="Special delivery instructions or packaging requests..."
             />
           </div>
 
-          <h2 className="text-lg font-bold font-serif text-[#1E3A2F] border-b border-gray-100 pb-3 pt-4 flex items-center gap-2">
+          <h2 className="text-lg font-bold font-serif text-black border-b border-gray-100 pb-3 pt-4 flex items-center gap-2">
             <svg
-              className="w-5 h-5 text-[#C27D38]"
+              className="w-5 h-5 text-[#E1A926]"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -511,10 +511,10 @@ export default function CheckoutPage() {
             </svg>
             2. Payment Method
           </h2>
-          <div className="p-4 rounded-xl border border-[#C27D38] bg-[#FDFBF7] flex items-center gap-3">
-            <span className="w-4.5 h-4.5 rounded-full border-4 border-[#C27D38] flex items-center justify-center flex-shrink-0" />
+          <div className="p-4 rounded-xl border border-[#E1A926] bg-[#1A1A1A] flex items-center gap-3">
+            <span className="w-4.5 h-4.5 rounded-full border-4 border-[#E1A926] flex items-center justify-center flex-shrink-0" />
             <div className="font-sans">
-              <h4 className="text-xs font-bold text-[#1E3A2F]">
+              <h4 className="text-xs font-bold text-[#F2F2F2]">
                 Cash on Delivery (COD)
               </h4>
               <p className="text-[10px] text-gray-500">
@@ -527,7 +527,7 @@ export default function CheckoutPage() {
         {/* Right: Order summary & Submit CTA */}
         <div className="lg:col-span-5 space-y-6">
           <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm space-y-4">
-            <h3 className="text-base font-bold font-serif text-[#1E3A2F] border-b border-gray-100 pb-2">
+            <h3 className="text-base font-bold font-serif text-black border-b border-gray-100 pb-2">
               Order Summary
             </h3>
 
@@ -563,9 +563,9 @@ export default function CheckoutPage() {
                 <span>Delivery Fee ({district})</span>
                 <span>LKR {shippingCost.toLocaleString()}</span>
               </div>
-              <div className="flex justify-between border-t border-gray-200 pt-3 text-[#1E3A2F] font-bold">
-                <span className="text-sm">Grand Total</span>
-                <span className="text-lg text-[#C27D38]">
+              <div className="flex justify-between border-t border-gray-200 pt-3 text-[#F2F2F2] font-bold">
+                <span className="text-sm text-black">Grand Total</span>
+                <span className="text-lg text-[#E1A926]">
                   LKR {grandTotal.toLocaleString()}
                 </span>
               </div>
@@ -594,7 +594,7 @@ export default function CheckoutPage() {
           </div>
 
           {/* Secure indicator */}
-          <div className="p-4 bg-[#F0F4F1] rounded-xl border border-dashed border-[#1E3A2F]/20 flex items-center gap-3 text-[#1E3A2F] text-[11px] font-sans">
+          <div className="p-4 bg-[#1A1A1A] rounded-xl border border-dashed border-[#E1A926]/20 flex items-center gap-3 text-[#F2F2F2] text-[11px] font-sans">
             <svg
               className="w-5 h-5 flex-shrink-0"
               fill="none"
@@ -618,3 +618,4 @@ export default function CheckoutPage() {
     </div>
   );
 }
+

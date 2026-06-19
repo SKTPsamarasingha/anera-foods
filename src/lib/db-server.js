@@ -595,6 +595,39 @@ export const dbServer = {
     await firestoreDb.collection("pixel_logs").doc(id).set(newPixelLog);
     return newPixelLog;
   },
+
+  // ─── Settings ─────────────────────────────────────────────────
+  getSettings: async () => {
+    await ensureSeeded();
+    const doc = await firestoreDb.collection("settings").doc("config").get();
+    if (!doc.exists) {
+      const defaultSettings = {
+        deliveryFees: 0,
+        deliveryZones: [],
+        loyaltyPointsPerLKR: 0,
+        createdAt: new Date().toISOString(),
+      };
+      await firestoreDb
+        .collection("settings")
+        .doc("config")
+        .set(defaultSettings);
+      return defaultSettings;
+    }
+    return { id: doc.id, ...doc.data() };
+  },
+
+  updateSettings: async (updates = {}) => {
+    const docRef = firestoreDb.collection("settings").doc("config");
+    const doc = await docRef.get();
+    const base = doc.exists ? doc.data() : {};
+    const payload = {
+      ...base,
+      ...updates,
+      updatedAt: new Date().toISOString(),
+    };
+    await docRef.set(payload, { merge: true });
+    return payload;
+  },
 };
 
 // Backward-compatible alias for auth routes
