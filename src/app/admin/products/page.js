@@ -181,7 +181,7 @@ export default function AdminProductsPage() {
                   name="name"
                   value={form.name}
                   onChange={handleInputChange}
-                  className={`w-full p-2.5 border rounded-lg placeholder-gray-400 focus:outline-none focus:border-[#C27D38] ${
+                  className={`text-black w-full p-2.5 border rounded-lg placeholder-gray-400 focus:outline-none focus:border-[#C27D38] ${
                     errors.name ? "border-red-500" : "border-gray-200"
                   }`}
                   placeholder="e.g. Spiced Deviled Cashews"
@@ -202,7 +202,7 @@ export default function AdminProductsPage() {
                   name="sku"
                   value={form.sku}
                   onChange={handleInputChange}
-                  className={`w-full p-2.5 border rounded-lg placeholder-gray-400 focus:outline-none focus:border-[#C27D38] ${
+                  className={`text-black w-full p-2.5 border rounded-lg placeholder-gray-400 focus:outline-none focus:border-[#C27D38] ${
                     errors.sku ? "border-red-500" : "border-gray-200"
                   }`}
                   placeholder="e.g. ANR-CAS-DEV-250"
@@ -222,7 +222,7 @@ export default function AdminProductsPage() {
                   name="category"
                   value={form.category}
                   onChange={handleInputChange}
-                  className="w-full p-2.5 border border-gray-200 rounded-lg focus:outline-none focus:border-[#C27D38] bg-white placeholder-gray-400"
+                  className="text-black w-full p-2.5 border border-gray-200 rounded-lg focus:outline-none focus:border-[#C27D38] bg-white placeholder-gray-400"
                 >
                   <option value="snacks">Artisanal Snacks</option>
                   <option value="ready-to-eat">Ready-To-Eat</option>
@@ -239,7 +239,7 @@ export default function AdminProductsPage() {
                   name="price"
                   value={form.price}
                   onChange={handleInputChange}
-                  className={`w-full p-2.5 border rounded-lg placeholder-gray-400 focus:outline-none focus:border-[#C27D38] ${
+                  className={`text-black w-full p-2.5 border rounded-lg placeholder-gray-400 focus:outline-none focus:border-[#C27D38] ${
                     errors.price ? "border-red-500" : "border-gray-200"
                   }`}
                   placeholder="e.g. 1850"
@@ -258,7 +258,7 @@ export default function AdminProductsPage() {
                   name="weight"
                   value={form.weight}
                   onChange={handleInputChange}
-                  className={`w-full p-2.5 border rounded-lg placeholder-gray-400 focus:outline-none focus:border-[#C27D38] ${
+                  className={`text-black w-full p-2.5 border rounded-lg placeholder-gray-400 focus:outline-none focus:border-[#C27D38] ${
                     errors.weight ? "border-red-500" : "border-gray-200"
                   }`}
                   placeholder="e.g. 250g or 750ml"
@@ -281,7 +281,7 @@ export default function AdminProductsPage() {
                   name="stockQuantity"
                   value={form.stockQuantity}
                   onChange={handleInputChange}
-                  className={`w-full p-2.5 border rounded-lg placeholder-gray-400 focus:outline-none focus:border-[#C27D38] ${
+                  className={`text-black w-full p-2.5 border rounded-lg placeholder-gray-400 focus:outline-none focus:border-[#C27D38] ${
                     errors.stockQuantity ? "border-red-500" : "border-gray-200"
                   }`}
                   placeholder="e.g. 45"
@@ -301,7 +301,7 @@ export default function AdminProductsPage() {
                   type="text"
                   value={form.images[0]}
                   onChange={handleImageChange}
-                  className="w-full p-2.5 border border-gray-200 rounded-lg placeholder-gray-400 focus:outline-none focus:border-[#C27D38]"
+                  className="text-black w-full p-2.5 border border-gray-200 rounded-lg placeholder-gray-400 focus:outline-none focus:border-[#C27D38]"
                   placeholder="Paste Unsplash or static image link..."
                 />
               </div>
@@ -316,7 +316,7 @@ export default function AdminProductsPage() {
                 value={form.description}
                 onChange={handleInputChange}
                 rows={4}
-                className="w-full p-2.5 border border-gray-200 rounded-lg placeholder-gray-400 focus:outline-none focus:border-[#C27D38]"
+                className="text-black w-full p-2.5 border border-gray-200 rounded-lg placeholder-gray-400 focus:outline-none focus:border-[#C27D38]"
                 placeholder="Product attributes and details..."
               />
             </div>
@@ -343,7 +343,7 @@ export default function AdminProductsPage() {
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 space-y-4">
           {/* Filters row */}
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div className="relative w-full sm:max-w-xs">
+            <div className="relative  w-full sm:max-w-xs">
               <input
                 type="text"
                 value={search}

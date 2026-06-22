@@ -160,9 +160,9 @@ export default function AdminRolesPage() {
   }
 
   return (
-    <div className="space-y-8 font-sans">
+    <div className="text-black space-y-8 font-sans">
       <div>
-        <h1 className="text-2xl font-bold font-serif text-[#F2F2F2]">
+        <h1 className="text-2xl font-bold font-serif text-black">
           Roles & Permissions
         </h1>
         <p className="text-xs text-gray-500">
@@ -182,7 +182,7 @@ export default function AdminRolesPage() {
       <div className="grid lg:grid-cols-3 gap-6">
         {/* Role list */}
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 space-y-4">
-          <h2 className="font-bold text-[#F2F2F2] text-sm">Roles</h2>
+          <h2 className="font-bold text-black text-sm">Roles</h2>
           <div className="space-y-2">
             {roles.map((role) => (
               <button
@@ -247,7 +247,7 @@ export default function AdminRolesPage() {
             <>
               <div className="flex justify-between items-start">
                 <div>
-                  <h2 className="font-bold text-[#F2F2F2]">
+                  <h2 className="font-bold text-black">
                     {selectedRole.name}
                   </h2>
                   <p className="text-xs text-gray-400">ID: {selectedRole.id}</p>
@@ -312,7 +312,7 @@ export default function AdminRolesPage() {
       {/* User role assignment */}
       {isSuperAdmin && (
         <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 space-y-4">
-          <h2 className="font-bold text-[#F2F2F2] text-sm">
+          <h2 className="font-bold text-black text-sm">
             Assign User Roles
           </h2>
           <div className="overflow-x-auto">

@@ -1,6 +1,13 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect, useCallback, useRef } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+  useRef,
+} from "react";
 import { hasPermission as checkPermission } from "@/lib/rbac";
 
 const AuthContext = createContext(null);
@@ -12,6 +19,7 @@ export const AuthProvider = ({ children }) => {
   const [accessToken, setAccessToken] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const refreshTimerRef = useRef(null);
+
 
   const scheduleRefresh = useCallback(function refreshSession() {
     if (refreshTimerRef.current) {
@@ -75,43 +83,48 @@ export const AuthProvider = ({ children }) => {
     };
   }, [scheduleRefresh]);
 
-  const login = useCallback(async (email, password) => {
-    const res = await fetch("/api/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
+  const login = useCallback(
+    async (email, password) => {
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
 
-    const data = await res.json();
-    if (!res.ok) {
-      throw new Error(data.error || "Login failed");
-    }
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "Login failed");
+      }
 
-    setAccessToken(data.accessToken);
-    
-    
-    setUser(data.user);
-    scheduleRefresh();
-    return data.user;
-  }, [scheduleRefresh]);
+      setAccessToken(data.accessToken);
 
-  const signup = useCallback(async (name, email, phone, password) => {
-    const res = await fetch("/api/auth/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, phone, password }),
-    });
+      setUser(data.user);
+      scheduleRefresh();
+      return data.user;
+    },
+    [scheduleRefresh],
+  );
 
-    const data = await res.json();
-    if (!res.ok) {
-      throw new Error(data.error || "Signup failed");
-    }
+  const signup = useCallback(
+    async (name, email, phone, password) => {
+      const res = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, phone, password }),
+      });
 
-    setAccessToken(data.accessToken);
-    setUser(data.user);
-    scheduleRefresh();
-    return data.user;
-  }, [scheduleRefresh]);
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "Signup failed");
+      }
+
+      setAccessToken(data.accessToken);
+      setUser(data.user);
+      scheduleRefresh();
+      return data.user;
+    },
+    [scheduleRefresh],
+  );
 
   const logout = useCallback(async () => {
     try {
@@ -131,7 +144,7 @@ export const AuthProvider = ({ children }) => {
 
   const hasPermission = useCallback(
     (permission) => checkPermission(user?.permissions, permission),
-    [user]
+    [user],
   );
 
   const permissions = user?.permissions ?? [];
@@ -148,7 +161,10 @@ export const AuthProvider = ({ children }) => {
         logout,
         hasPermission,
         isAuthenticated: !!accessToken && !!user,
-        isAdmin: permissions.includes("*") || roleId === "admin" || roleId === "superadmin",
+        isAdmin:
+          permissions.includes("*") ||
+          roleId === "admin" ||
+          roleId === "superadmin",
         isSuperAdmin: permissions.includes("*") || roleId === "superadmin",
       }}
     >
