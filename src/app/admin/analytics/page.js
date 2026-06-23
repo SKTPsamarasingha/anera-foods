@@ -58,7 +58,7 @@ export default function AdminAnalyticsPage() {
 
   const getPixelEventBadge = (name) => {
     switch (name) {
-      case "PageView": return "bg-[#1E3A2F]/10 text-[#1E3A2F] border-[#1E3A2F]/20";
+      case "PageView": return "bg-[#1E3A2F]/10 text-black border-[#1E3A2F]/20";
       case "AddToCart": return "bg-[#C27D38]/10 text-[#C27D38] border-[#C27D38]/20";
       case "InitiateCheckout": return "bg-[#E5A93B]/10 text-[#E5A93B] border-[#E5A93B]/20";
       case "Purchase": return "bg-[#2E7D32]/10 text-[#2E7D32] border-[#2E7D32]/20";
@@ -71,7 +71,7 @@ export default function AdminAnalyticsPage() {
       
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold font-serif text-[#1E3A2F]">Meta & TikTok Pixel Tracking</h1>
+        <h1 className="text-2xl font-bold font-serif text-black">Meta & TikTok Pixel Tracking</h1>
         <p className="text-xs text-gray-500">
           Attribution reports analyzing Facebook PageView and Purchase event logs to calculate campaign ROI.
         </p>
@@ -121,7 +121,7 @@ export default function AdminAnalyticsPage() {
           <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider">Simulated Ad Revenue</h3>
           <div className="pt-1">
             <span className="text-[10px] text-gray-400 block">Purchase Value Total</span>
-            <strong className="text-2xl font-serif text-[#1E3A2F]">LKR {funnel.revenue.toLocaleString()}</strong>
+            <strong className="text-2xl font-serif text-black">LKR {funnel.revenue.toLocaleString()}</strong>
           </div>
         </div>
 
@@ -130,7 +130,7 @@ export default function AdminAnalyticsPage() {
       {/* Funnel Graph Visualizer */}
       <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm space-y-6">
         <div>
-          <h3 className="text-base font-bold text-[#1E3A2F] font-serif">Storefront Conversion Funnel</h3>
+          <h3 className="text-base font-bold text-black font-serif">Storefront Conversion Funnel</h3>
           <p className="text-[10px] text-gray-400">Step-by-step checkout drops analysis.</p>
         </div>
 
@@ -162,7 +162,7 @@ export default function AdminAnalyticsPage() {
 
       {/* Raw logs list */}
       <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 space-y-4">
-        <h3 className="text-base font-bold text-[#1E3A2F] font-serif">Raw Pixel Logs Ledger</h3>
+        <h3 className="text-base font-bold text-black font-serif">Raw Pixel Logs Ledger</h3>
         
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse text-xs">

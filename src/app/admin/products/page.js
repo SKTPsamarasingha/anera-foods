@@ -142,11 +142,11 @@ export default function AdminProductsPage() {
   };
 
   return (
-    <div className="space-y-6 font-sans">
+    <div className="space-y-6 font-sans ">
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-2xl font-bold font-serif text-[#1E3A2F]">
+          <h1 className="text-2xl font-bold font-serif text-black">
             Product Management
           </h1>
           <p className="text-xs text-gray-500">
@@ -166,7 +166,7 @@ export default function AdminProductsPage() {
       {isFormOpen ? (
         // EDIT / CREATE FORM PANEL
         <div className="bg-white p-6 sm:p-8 rounded-2xl border border-gray-100 shadow-md max-w-2xl mx-auto animate-fade-in space-y-6">
-          <h2 className="text-lg font-bold font-serif text-[#1E3A2F] border-b border-gray-100 pb-3">
+          <h2 className="text-lg font-bold font-serif text-black border-b border-gray-100 pb-3">
             {form.id ? "Edit Product Details" : "Create New Product"}
           </h2>
 
@@ -325,7 +325,7 @@ export default function AdminProductsPage() {
               <button
                 type="button"
                 onClick={() => setIsFormOpen(false)}
-                className="btn btn-outline py-2 px-5 text-xs"
+                className="btn bg-red-600 py-2 px-5 text-xs"
               >
                 Cancel
               </button>
@@ -349,7 +349,7 @@ export default function AdminProductsPage() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search products..."
-                className="w-full pl-9 pr-4 py-2 text-xs border border-gray-200 rounded-lg placeholder-gray-400 focus:outline-none focus:border-[#C27D38]"
+                className="w-full text-black pl-9 pr-4 py-2 text-xs border border-gray-200 rounded-lg placeholder-gray-400 focus:outline-none focus:border-[#C27D38]"
               />
               <svg
                 className="w-4 h-4 text-gray-400 absolute left-3 top-2.5"
@@ -406,7 +406,7 @@ export default function AdminProductsPage() {
                 ) : (
                   filteredProducts.map((p) => (
                     <tr key={p.id} className="hover:bg-gray-50/50">
-                      <td className="py-3 font-semibold text-[#1E3A2F] flex items-center gap-3">
+                      <td className="py-3 font-semibold text-black flex items-center gap-3">
                         <div className="w-8 h-8 rounded bg-gray-50 overflow-hidden relative flex-shrink-0">
                           {p.images && p.images[0] ? (
                             // eslint-disable-next-line @next/next/no-img-element
@@ -416,7 +416,7 @@ export default function AdminProductsPage() {
                               className="w-full h-full object-cover"
                             />
                           ) : (
-                            <span className="font-bold flex items-center justify-center h-full text-[#1E3A2F]">
+                            <span className="font-bold flex items-center justify-center h-full text-black">
                               {p.name[0]}
                             </span>
                           )}
@@ -453,7 +453,7 @@ export default function AdminProductsPage() {
                       <td className="py-3 text-right space-x-2">
                         <button
                           onClick={() => handleEdit(p)}
-                          className="text-[#1E3A2F] hover:text-[#C27D38] font-bold"
+                          className="text-black hover:text-[#C27D38] font-bold"
                         >
                           Edit
                         </button>

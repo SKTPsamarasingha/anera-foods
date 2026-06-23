@@ -176,7 +176,9 @@ export default function CheckoutPage() {
 
   if (!isMounted) {
     return (
-      <div className="max-w-7xl mx-auto px-4 py-24 text-center">
+      <div
+        className=" max-w-7xl mx-auto px-4 py-24 text-center"
+      >
         <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#E1A926] mx-auto"></div>
         <p className="mt-4 text-xs text-gray-500">Initializing checkout...</p>
       </div>
@@ -253,7 +255,7 @@ export default function CheckoutPage() {
             </Link>
             <Link
               href={`/track?number=${placedOrder.orderNumber}&phone=${placedOrder.customer.phone}`}
-              className="btn btn-outline px-6 py-3 text-xs w-full sm:w-auto font-sans"
+              className="btn bg-[#E1A926] px-6 py-3 text-xs w-full sm:w-auto font-sans"
             >
               Track Order Status
             </Link>

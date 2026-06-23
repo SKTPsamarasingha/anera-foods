@@ -201,7 +201,7 @@ export default function Footer() {
                   href="tel:+94769138608"
                   className="hover:text-white transition-colors"
                 >
-                  +94 76 913 8608
+                  +94 74 336 1612
                 </a>
               </li>
               <li className="flex items-center gap-2">
@@ -234,7 +234,7 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row justify-between items-center text-[10px] text-gray-400 font-sans gap-4">
           <p>
             &copy; {new Date().getFullYear()} Anera Foods. All rights reserved.
-            Developed for Pixzora Lab.
+            Developed for Thiruna Samarasinghe.
           </p>
           <div className="flex items-center gap-3">
             <span className="border border-white/10 rounded px-2 py-0.5 uppercase tracking-wider font-semibold">

@@ -6,12 +6,13 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 
 const getSafeRedirectUrl = (user, searchParams) => {
-  // 1. Force administration routes
-  if (user?.roleId === "admin" || user?.roleId === "superadmin") {
+  // 1. Force admin/superadmin to their panel — no exceptions
+  const role = user?.roleId?.toString().toLowerCase();
+  if (role === "admin" || role === "superadmin") {
     return "/admin";
   }
 
-  // 2. Handle safe redirect parameters for customers/staff
+  // 2. Safe redirect for customers/staff only
   const targetRedirect = searchParams.get("redirect");
   const isSafeRedirect =
     targetRedirect &&
@@ -48,7 +49,6 @@ function LoginForm() {
     if (!password) return "Please enter your password.";
     return null;
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -60,8 +60,7 @@ function LoginForm() {
 
     setSubmitting(true);
     try {
-      const loggedInUser = await login(email, password);
-      // Run the unified safe redirection handler
+      const loggedInUser = await login(email, password); // ← fresh user
       const destination = getSafeRedirectUrl(loggedInUser, searchParams);
       router.replace(destination);
     } catch (err) {

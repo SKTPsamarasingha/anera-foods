@@ -5,7 +5,9 @@ import Link from "next/link";
 
 export default function AboutPage() {
   return (
-    <div className="space-y-16 pb-20 animate-fade-in">
+    <div
+      className=" space-y-16 pb-20 animate-fade-in"
+    >
       {/* Hero Banner Header */}
       <section className="relative py-24 text-white text-center bg-grain overflow-hidden">
         <div
@@ -38,7 +40,7 @@ export default function AboutPage() {
             How Anera Started
           </h2>
           <p>
-            Anera Foods was founded under Pixzora Lab’s development scope to
+            Anera Foods was founded to
             bridge a critical gap: access to authentic, high-quality,
             pre-prepared Sri Lankan foods. Many Sri Lankans living in urban
             areas, or carrying out demanding corporate routines, find it

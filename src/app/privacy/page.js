@@ -4,7 +4,9 @@ import React from "react";
 
 export default function PrivacyPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12 space-y-12 animate-fade-in font-sans text-xs sm:text-sm text-gray-600 leading-relaxed">
+    <div
+      className=" max-w-4xl mx-auto px-4 py-12 space-y-12 animate-fade-in font-sans text-xs sm:text-sm text-white leading-relaxed"
+    >
       {/* Header */}
       <div className="text-center space-y-2">
         <span className="text-xs uppercase tracking-widest text-[#E1A926] font-bold">
@@ -130,7 +132,7 @@ export default function PrivacyPage() {
 
       {/* 4. Terms of Service */}
       <section id="terms" className="space-y-4 pt-4">
-        <h2 className="text-xl font-bold font-serif text-[#1E3A2F]">
+        <h2 className="text-xl font-bold font-serif text-white">
           Terms of Service
         </h2>
         <p>

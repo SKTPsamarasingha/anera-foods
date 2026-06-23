@@ -61,7 +61,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* 2. VALUE PROPOSITIONS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -138,7 +137,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* 3. CATEGORIES SECTIONS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <div className="text-center space-y-3">
@@ -231,7 +229,6 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
-
       {/* 4. FEATURED PRODUCTS CATALOG */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <div className="flex flex-col sm:flex-row justify-between items-end gap-4">
@@ -239,13 +236,13 @@ export default function HomePage() {
             <span className="text-xs uppercase tracking-widest text-[#C27D38] font-bold">
               Selected Favorites
             </span>
-            <h2 className="text-3xl font-bold font-serif text-[#1E3A2F]">
+            <h2 className="text-3xl font-bold font-serif text-whit">
               Our Best Sellers
             </h2>
           </div>
           <Link
             href="/products"
-            className="btn btn-outline text-xs py-2 px-5 font-semibold"
+            className="btn btn-outline text-xs py-2 px-5 font-semibold text-white"
           >
             View All Products
           </Link>
@@ -257,7 +254,6 @@ export default function HomePage() {
           ))}
         </div>
       </section>
-
       {/* 5. BRAND INTRO / ABOUT BLOCK */}
       <section className="bg-gradient-to-r from-[#1E3A2F] to-[#12241C] text-[#FDFBF7] py-20 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-80 h-80 bg-[#C27D38]/10 rounded-full blur-3xl" />
@@ -304,14 +300,13 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* 6. SOCIAL PROOF / REVIEWS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <div className="text-center space-y-3">
           <span className="text-xs uppercase tracking-widest text-[#C27D38] font-bold">
             Testimonials
           </span>
-          <h2 className="text-3xl font-bold font-serif text-[#1E3A2F]">
+          <h2 className="text-3xl font-bold font-serif text-white">
             Loved by Home Cooks
           </h2>
           <div className="w-16 h-1 bg-[#C27D38] mx-auto rounded-full" />
@@ -340,7 +335,7 @@ export default function HomePage() {
                 ND
               </div>
               <div>
-                <h4 className="text-xs font-bold font-serif text-[#1E3A2F]">
+                <h4 className="text-xs font-bold font-serif text-black">
                   Nisansala De Silva
                 </h4>
                 <p className="text-[10px] text-gray-400 font-sans">
@@ -368,11 +363,11 @@ export default function HomePage() {
               perfect. Everyone loved it. Definitely ordering again.&rdquo;
             </p>
             <div className="flex items-center gap-3 pt-2">
-              <div className="w-10 h-10 rounded-full bg-[#1E3A2F]/10 flex items-center justify-center font-bold text-sm text-[#1E3A2F]">
+              <div className="w-10 h-10 rounded-full bg-[#E1A926]/10 flex items-center justify-center font-bold text-sm text-[#E1A926]">
                 AS
               </div>
               <div>
-                <h4 className="text-xs font-bold font-serif text-[#1E3A2F]">
+                <h4 className="text-xs font-bold font-serif text-black">
                   Amila Senanayake
                 </h4>
                 <p className="text-[10px] text-gray-400 font-sans">
@@ -400,11 +395,11 @@ export default function HomePage() {
               properly. A true high-quality product.&rdquo;
             </p>
             <div className="flex items-center gap-3 pt-2">
-              <div className="w-10 h-10 rounded-full bg-[#1E3A2F]/10 flex items-center justify-center font-bold text-sm text-[#1E3A2F]">
+              <div className="w-10 h-10 rounded-full bg-[#E1A926]/10 flex items-center justify-center font-bold text-sm text-[#E1A926]">
                 KM
               </div>
               <div>
-                <h4 className="text-xs font-bold font-serif text-[#1E3A2F]">
+                <h4 className="text-xs font-bold font-serif text-black">
                   Kumari Mendis
                 </h4>
                 <p className="text-[10px] text-gray-400 font-sans">
@@ -415,7 +410,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* 7. DYNAMIC CALL TO ACTION BANNER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-[#C27D38] rounded-3xl p-8 sm:p-16 text-white text-center space-y-6 shadow-xl relative overflow-hidden">

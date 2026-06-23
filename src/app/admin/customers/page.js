@@ -62,12 +62,18 @@ export default function AdminCustomersPage() {
   }, [search, customers]);
 
   return (
-    <div className="space-y-6 font-sans">
-      
+    <div
+      className="text-black
+ space-y-6 font-sans"
+    >
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold font-serif text-[#1E3A2F]">Customer Database</h1>
-        <p className="text-xs text-gray-500">Aggregated buyer contacts and total lifetime purchase values.</p>
+        <h1 className="text-2xl font-bold font-serif text-black">
+          Customers 
+        </h1>
+        <p className="text-xs text-gray-500">
+          Aggregated buyer contacts and total lifetime purchase values.
+        </p>
       </div>
 
       {/* Control panel */}
@@ -80,8 +86,18 @@ export default function AdminCustomersPage() {
             placeholder="Search name, email, or telephone..."
             className="w-full pl-9 pr-4 py-2 text-xs border border-gray-200 rounded-lg focus:outline-none focus:border-[#C27D38]"
           />
-          <svg className="w-4 h-4 text-gray-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          <svg
+            className="w-4 h-4 text-gray-400 absolute left-3 top-2.5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
           </svg>
         </div>
 
@@ -101,28 +117,41 @@ export default function AdminCustomersPage() {
             <tbody className="divide-y divide-gray-50 text-gray-600">
               {filteredCustomers.length === 0 ? (
                 <tr>
-                  <td colSpan={6} className="py-6 text-center text-gray-400">No buyer profiles matched search parameters.</td>
+                  <td colSpan={6} className="py-6 text-center text-gray-400">
+                    No buyer profiles matched search parameters.
+                  </td>
                 </tr>
               ) : (
                 filteredCustomers.map((c, idx) => (
                   <tr key={idx} className="hover:bg-gray-50/50">
                     <td className="py-3.5 flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-[#1E3A2F]/10 text-[#1E3A2F] flex items-center justify-center font-bold text-xs uppercase">
+                      <div className="w-8 h-8 rounded-full bg-[#1E3A2F]/10 text-black flex items-center justify-center font-bold text-xs uppercase">
                         {c.name.substring(0, 2)}
                       </div>
                       <div>
-                        <span className="font-semibold text-gray-800 block">{c.name}</span>
-                        <span className="text-[10px] text-gray-400 block">{c.email}</span>
+                        <span className="font-semibold text-gray-800 block">
+                          {c.name}
+                        </span>
+                        <span className="text-[10px] text-gray-400 block">
+                          {c.email}
+                        </span>
                       </div>
                     </td>
                     <td className="py-3.5">
-                      <a href={`tel:${c.phone}`} className="text-[#C27D38] font-bold hover:underline">
+                      <a
+                        href={`tel:${c.phone}`}
+                        className="text-[#C27D38] font-bold hover:underline"
+                      >
                         {c.phone}
                       </a>
                     </td>
                     <td className="py-3.5 text-gray-500">{c.district}</td>
-                    <td className="py-3.5 text-center font-semibold text-gray-700">{c.ordersCount}</td>
-                    <td className="py-3.5 font-bold text-[#1E3A2F]">LKR {c.totalSpent.toLocaleString()}</td>
+                    <td className="py-3.5 text-center font-semibold text-gray-700">
+                      {c.ordersCount}
+                    </td>
+                    <td className="py-3.5 font-bold text-black">
+                      LKR {c.totalSpent.toLocaleString()}
+                    </td>
                     <td className="py-3.5 text-right text-gray-400 font-sans">
                       {new Date(c.lastOrderDate).toLocaleDateString()}
                     </td>
@@ -133,7 +162,6 @@ export default function AdminCustomersPage() {
           </table>
         </div>
       </div>
-
     </div>
   );
 }

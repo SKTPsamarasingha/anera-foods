@@ -89,16 +89,23 @@ function SignupForm() {
 
   return (
     <div
-      className="relative min-h-[92vh] flex items-center justify-center overflow-hidden py-12"
-      style={{ background: "linear-gradient(135deg, #1E3A2F 0%, #2d2d3f 50%, #1a1a2e 100%)" }}
+      className=" relative min-h-[92vh] flex items-center justify-center overflow-hidden py-12"
+      style={{
+        background:
+          "linear-gradient(135deg, #1E3A2F 0%, #2d2d3f 50%, #1a1a2e 100%)",
+      }}
     >
       <div
         className="absolute top-[10%] left-[15%] w-[400px] h-[400px] rounded-full blur-[120px] opacity-25"
-        style={{ background: "radial-gradient(circle, #C27D38 0%, transparent 70%)" }}
+        style={{
+          background: "radial-gradient(circle, #C27D38 0%, transparent 70%)",
+        }}
       />
       <div
         className="absolute bottom-[10%] right-[10%] w-[350px] h-[350px] rounded-full blur-[100px] opacity-20"
-        style={{ background: "radial-gradient(circle, #E5A93B 0%, transparent 70%)" }}
+        style={{
+          background: "radial-gradient(circle, #E5A93B 0%, transparent 70%)",
+        }}
       />
       <div className="absolute inset-0 bg-grain opacity-30 pointer-events-none" />
 
@@ -110,7 +117,8 @@ function SignupForm() {
             backdropFilter: "blur(24px)",
             WebkitBackdropFilter: "blur(24px)",
             border: "1px solid rgba(255,255,255,0.12)",
-            boxShadow: "0 32px 64px -12px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.08)",
+            boxShadow:
+              "0 32px 64px -12px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.08)",
           }}
         >
           <div className="text-center space-y-2">
@@ -121,8 +129,18 @@ function SignupForm() {
                 boxShadow: "0 8px 24px rgba(194,125,56,0.35)",
               }}
             >
-              <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+              <svg
+                className="w-7 h-7 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+                />
               </svg>
             </div>
             <h1 className="text-2xl sm:text-3xl font-bold font-serif text-white tracking-tight">
@@ -148,9 +166,27 @@ function SignupForm() {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             {[
-              { id: "name", label: "Full Name", type: "text", placeholder: "Your name", auto: "name" },
-              { id: "email", label: "Email Address", type: "email", placeholder: "you@example.com", auto: "email" },
-              { id: "phone", label: "Phone (optional)", type: "tel", placeholder: "+94 77 123 4567", auto: "tel" },
+              {
+                id: "name",
+                label: "Full Name",
+                type: "text",
+                placeholder: "Your name",
+                auto: "name",
+              },
+              {
+                id: "email",
+                label: "Email Address",
+                type: "email",
+                placeholder: "you@example.com",
+                auto: "email",
+              },
+              {
+                id: "phone",
+                label: "Phone (optional)",
+                type: "tel",
+                placeholder: "+94 77 123 4567",
+                auto: "tel",
+              },
             ].map((field) => (
               <div key={field.id} className="space-y-1.5">
                 <label className="block text-xs font-semibold uppercase tracking-wider text-white/40 font-sans">
@@ -211,12 +247,18 @@ function SignupForm() {
               <input
                 type="checkbox"
                 checked={agreed}
-                onChange={(e) => { setAgreed(e.target.checked); setError(""); }}
+                onChange={(e) => {
+                  setAgreed(e.target.checked);
+                  setError("");
+                }}
                 className="mt-1 rounded border-white/20"
               />
               <span className="text-xs text-white/50 font-sans leading-relaxed group-hover:text-white/70 transition-colors">
                 I agree to the{" "}
-                <Link href="/privacy" className="text-[#E5A93B] hover:underline">
+                <Link
+                  href="/privacy"
+                  className="text-[#E5A93B] hover:underline"
+                >
                   Privacy Policy
                 </Link>{" "}
                 and Terms of Service
@@ -231,7 +273,9 @@ function SignupForm() {
                 background: submitting
                   ? "rgba(194,125,56,0.5)"
                   : "linear-gradient(135deg, #C27D38 0%, #E5A93B 100%)",
-                boxShadow: submitting ? "none" : "0 8px 24px rgba(194,125,56,0.3)",
+                boxShadow: submitting
+                  ? "none"
+                  : "0 8px 24px rgba(194,125,56,0.3)",
               }}
             >
               {submitting ? "Creating account…" : "Create Account"}
@@ -240,7 +284,10 @@ function SignupForm() {
 
           <p className="text-center text-sm text-white/50 font-sans">
             Already have an account?{" "}
-            <Link href="/login" className="text-[#E5A93B] font-semibold hover:text-[#f0c060] transition-colors">
+            <Link
+              href="/login"
+              className="text-[#E5A93B] font-semibold hover:text-[#f0c060] transition-colors"
+            >
               Sign In
             </Link>
           </p>

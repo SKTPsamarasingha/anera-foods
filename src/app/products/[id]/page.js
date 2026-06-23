@@ -76,7 +76,9 @@ export default function ProductDetailPage() {
 
   if (loading) {
     return (
-      <div className="max-w-7xl mx-auto px-4 py-24 text-center">
+      <div
+        className=" max-w-7xl mx-auto px-4 py-24 text-center"
+      >
         <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#1E3A2F] mx-auto"></div>
         <p className="mt-4 text-xs text-gray-500">Loading product details...</p>
       </div>
@@ -89,7 +91,7 @@ export default function ProductDetailPage() {
         <svg className="w-16 h-16 text-gray-300 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
         </svg>
-        <h2 className="text-2xl font-bold font-serif text-[#1E3A2F]">Product Not Found</h2>
+        <h2 className="text-2xl font-bold font-serif text-white">Product Not Found</h2>
         <p className="text-xs text-gray-500 max-w-sm mx-auto font-sans">
           The product you are looking for may have been archived or deleted.
         </p>
@@ -107,7 +109,7 @@ export default function ProductDetailPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16 animate-fade-in">
       
       {/* Back Button */}
-      <Link href="/products" className="inline-flex items-center text-xs font-semibold text-gray-500 hover:text-[#1E3A2F] gap-1 transition-colors">
+      <Link href="/products" className="inline-flex items-center text-xs font-semibold text-gray-500 hover:text-white gap-1 transition-colors">
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
         </svg>
@@ -126,7 +128,7 @@ export default function ProductDetailPage() {
               className="w-full h-full object-cover"
             />
           ) : (
-            <span className="text-3xl font-bold font-serif text-[#1E3A2F]/30">{product.name}</span>
+            <span className="text-3xl font-bold font-serif text-white/30">{product.name}</span>
           )}
           {isOutOfStock && (
             <div className="absolute inset-0 bg-black/40 backdrop-blur-xs flex items-center justify-center">
@@ -143,7 +145,7 @@ export default function ProductDetailPage() {
             <span className="text-xs uppercase tracking-widest text-[#C27D38] font-bold block mb-2 font-sans">
               {product.category}
             </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-serif text-[#1E3A2F] leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-serif text-white leading-tight">
               {product.name}
             </h1>
             <div className="flex items-center gap-3 mt-3">
@@ -199,7 +201,7 @@ export default function ProductDetailPage() {
                   >
                     -
                   </button>
-                  <span className="px-4 text-xs font-bold font-sans text-[#1E3A2F]">{quantity}</span>
+                  <span className="px-4 text-xs font-bold font-sans text-white">{quantity}</span>
                   <button
                     onClick={handleIncrement}
                     className="px-3.5 py-1.5 text-gray-500 hover:text-green-500 font-bold transition-colors"
@@ -245,7 +247,7 @@ export default function ProductDetailPage() {
         <div className="space-y-8 pt-8 border-t border-[#1E3A2F]/10">
           <div className="text-center sm:text-left space-y-2">
             <span className="text-xs uppercase tracking-widest text-[#C27D38] font-bold block">Gourmet Matches</span>
-            <h2 className="text-2xl font-bold font-serif text-[#1E3A2F]">You Might Also Like</h2>
+            <h2 className="text-2xl font-bold font-serif text-white">You Might Also Like</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {relatedProducts.map((p) => (

@@ -70,7 +70,9 @@ function CatalogContent() {
   }, [products, searchTerm, selectedCategory, onlyInStock, sortBy]);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8 animate-fade-in">
+    <div
+      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8 animate-fade-in"
+    >
       {/* Page Header */}
       <div className="text-center sm:text-left space-y-2">
         <h1 className="text-3xl sm:text-5xl font-bold font-serif text-white">
@@ -202,7 +204,7 @@ function CatalogContent() {
                   d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <h3 className="text-lg font-bold font-serif text-[#1E3A2F]">
+              <h3 className="text-lg font-bold font-serif text-black ">
                 No products match your filters
               </h3>
               <p className="text-xs text-gray-500 font-sans max-w-sm mx-auto">

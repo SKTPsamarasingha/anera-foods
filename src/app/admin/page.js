@@ -127,7 +127,6 @@ export default function AdminDashboardPage() {
           activities.
         </p>
       </div>
-
       {/* Grid: 4 Metric Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {/* Metric 1 */}
@@ -194,7 +193,6 @@ export default function AdminDashboardPage() {
           </div>
         </div>
       </div>
-
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Sales by Category Graph */}
         <div className="lg:col-span-2 bg-white p-6 rounded-2xl border border-gray-100 shadow-xs space-y-6">
@@ -303,7 +301,6 @@ export default function AdminDashboardPage() {
           </div>
         </div>
       </div>
-
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Recent Orders Table */}
         <div className="lg:col-span-2 bg-white p-6 rounded-2xl border border-gray-100 shadow-xs space-y-4">

@@ -55,12 +55,18 @@ export default function FAQPage() {
     : FAQS.filter(f => f.category === activeCategory);
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12 space-y-8 animate-fade-in">
-      
+    <div
+      className="
+ max-w-4xl mx-auto px-4 py-12 space-y-8 animate-fade-in"
+    >
       {/* Header */}
       <div className="text-center space-y-2">
-        <span className="text-xs uppercase tracking-widest text-[#C27D38] font-bold">Support Center</span>
-        <h1 className="text-3xl sm:text-5xl font-bold font-serif text-[#1E3A2F]">Frequently Asked Questions</h1>
+        <span className="text-xs uppercase tracking-widest text-[#C27D38] font-bold">
+          Support Center
+        </span>
+        <h1 className="text-3xl sm:text-5xl font-bold font-serif text-white">
+          Frequently Asked Questions
+        </h1>
         <div className="w-12 h-1 bg-[#C27D38] mx-auto rounded-full mt-3" />
       </div>
 
@@ -71,7 +77,7 @@ export default function FAQPage() {
           { id: "ordering", label: "Ordering & COD" },
           { id: "shipping", label: "Shipping & Delivery" },
           { id: "products", label: "Product Storage" },
-          { id: "returns", label: "Returns & Refund" }
+          { id: "returns", label: "Returns & Refund" },
         ].map((tab) => (
           <button
             key={tab.id}
@@ -82,7 +88,7 @@ export default function FAQPage() {
             className={`text-xs px-3.5 py-1.5 rounded-full font-sans transition-all ${
               activeCategory === tab.id
                 ? "bg-[#1E3A2F] text-white font-semibold shadow-sm"
-                : "text-gray-500 hover:text-[#1E3A2F] hover:bg-[#1E3A2F]/5"
+                : "text-gray-500 hover:text-white hover:bg-[#1E3A2F]/5"
             }`}
           >
             {tab.label}
@@ -95,16 +101,18 @@ export default function FAQPage() {
         {filteredFaqs.map((faq) => {
           const isOpen = openId === faq.id;
           return (
-            <div 
-              key={faq.id} 
+            <div
+              key={faq.id}
               className="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-xs hover:border-[#1E3A2F]/10 transition-colors"
             >
               <button
                 onClick={() => toggleFAQ(faq.id)}
-                className="w-full p-5 text-left flex justify-between items-center font-sans font-semibold text-sm text-[#1E3A2F] hover:bg-[#1E3A2F]/2 transition-colors gap-4"
+                className="w-full p-5 text-left flex justify-between items-center font-sans font-semibold text-sm text-white hover:bg-[#1E3A2F]/2 transition-colors gap-4"
               >
                 <span>{faq.question}</span>
-                <span className={`transform transition-transform text-lg text-[#C27D38] ${isOpen ? "rotate-45" : ""}`}>
+                <span
+                  className={`transform transition-transform text-lg text-[#C27D38] ${isOpen ? "rotate-45" : ""}`}
+                >
                   ＋
                 </span>
               </button>
@@ -121,9 +129,12 @@ export default function FAQPage() {
 
       {/* Footer CTA */}
       <div className="bg-[#F0F4F1] rounded-2xl p-6 text-center border border-[#1E3A2F]/5 space-y-3 max-w-2xl mx-auto mt-12">
-        <h3 className="font-serif font-bold text-[#1E3A2F] text-base">Still have questions?</h3>
+        <h3 className="font-serif font-bold text-white text-base">
+          Still have questions?
+        </h3>
         <p className="text-xs text-gray-500 max-w-xs mx-auto">
-          We are available directly on WhatsApp to answer bulk inquiries or delivery questions.
+          We are available directly on WhatsApp to answer bulk inquiries or
+          delivery questions.
         </p>
         <div className="pt-2">
           <a
@@ -136,7 +147,6 @@ export default function FAQPage() {
           </a>
         </div>
       </div>
-
     </div>
   );
 }

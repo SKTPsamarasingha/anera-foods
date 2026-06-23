@@ -97,13 +97,15 @@ function TrackContent() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12 space-y-8 animate-fade-in font-sans">
+    <div
+      className=" max-w-4xl mx-auto px-4 py-12 space-y-8 animate-fade-in font-sans"
+    >
       {/* Header */}
       <div className="text-center space-y-2">
         <span className="text-xs uppercase tracking-widest text-[#C27D38] font-bold">
           Track Shipment
         </span>
-        <h1 className="text-3xl sm:text-5xl font-bold font-serif text-[#1E3A2F]">
+        <h1 className="text-3xl sm:text-5xl font-bold font-serif text-white">
           Track Your Order
         </h1>
         <p className="text-xs text-gray-500 max-w-sm mx-auto">
@@ -119,7 +121,7 @@ function TrackContent() {
             <span className="text-[10px] uppercase tracking-widest text-[#C27D38] font-bold">
               Your Orders
             </span>
-            <h2 className="text-lg sm:text-xl font-semibold text-[#1E3A2F] mt-2">
+            <h2 className="text-lg sm:text-xl font-semibold text-black mt-2">
               {user
                 ? `Orders for ${user.name}`
                 : "Sign in to view your order history"}
@@ -163,7 +165,7 @@ function TrackContent() {
                       <p className="text-[11px] uppercase tracking-[0.3em] text-gray-400 font-bold">
                         {customerOrder.orderNumber}
                       </p>
-                      <p className="text-sm font-semibold text-[#1E3A2F] mt-1">
+                      <p className="text-sm font-semibold text-black mt-1">
                         {customerOrder.status}
                       </p>
                     </div>
@@ -210,7 +212,7 @@ function TrackContent() {
                 <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider block">
                   Shipment Code
                 </span>
-                <strong className="text-base text-[#1E3A2F] font-serif">
+                <strong className="text-base text-black font-serif">
                   {order.orderNumber}
                 </strong>
               </div>
@@ -302,7 +304,7 @@ function TrackContent() {
 
           {/* Items Summary Column */}
           <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-gray-100 shadow-sm space-y-4">
-            <h3 className="text-sm font-bold font-serif text-[#1E3A2F] border-b border-gray-100 pb-2">
+            <h3 className="text-sm font-bold font-serif text-black border-b border-gray-100 pb-2">
               Order Items
             </h3>
 
@@ -336,7 +338,7 @@ function TrackContent() {
                 <span>Delivery Fee</span>
                 <span>LKR {order.shippingCost.toLocaleString()}</span>
               </div>
-              <div className="flex justify-between border-t border-gray-150 pt-2 text-[#1E3A2F] font-bold">
+              <div className="flex justify-between border-t border-gray-150 pt-2 text-black font-bold">
                 <span>Total Amount Paid</span>
                 <span className="text-sm text-[#C27D38]">
                   LKR {order.totalAmount.toLocaleString()}

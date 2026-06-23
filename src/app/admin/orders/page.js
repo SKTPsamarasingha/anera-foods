@@ -104,7 +104,9 @@ function OrdersContent() {
       {/* Left Column: Orders List */}
       <div className="lg:col-span-7 bg-white p-6 rounded-2xl border border-gray-100 shadow-sm space-y-6">
         <div>
-          <h1 className="text-xl font-bold font-serif text-black">
+          <h1
+            className="text-xl font-bold font-serif text-black"
+          >
             Order Management
           </h1>
           <p className="text-xs text-gray-500">
@@ -258,7 +260,7 @@ function OrdersContent() {
               // INVOICE PREVIEW PANEL
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
-                  <span className="text-xs font-bold font-serif text-[#1E3A2F]">
+                  <span className="text-xs font-bold font-serif text-black">
                     Invoice Packing Slip
                   </span>
                   <button
@@ -278,7 +280,11 @@ function OrdersContent() {
                 <button
                   onClick={() => {
                     const invoiceHtml = generateInvoiceHtml(selectedOrder);
-                    const printWindow = window.open("", "_blank", "width=800,height=900");
+                    const printWindow = window.open(
+                      "",
+                      "_blank",
+                      "width=800,height=900",
+                    );
                     if (printWindow) {
                       printWindow.document.write(`
                         <!DOCTYPE html>
@@ -461,7 +467,7 @@ function OrdersContent() {
                       LKR {selectedOrder.shippingCost.toLocaleString()}
                     </span>
                   </div>
-                  <div className="flex justify-between border-t border-gray-100 pt-2 text-[#1E3A2F] font-bold">
+                  <div className="flex justify-between border-t border-gray-100 pt-2 text-black font-bold">
                     <span>Invoice Total:</span>
                     <span className="text-[#C27D38]">
                       LKR {selectedOrder.totalAmount.toLocaleString()}
@@ -486,7 +492,7 @@ function OrdersContent() {
                     href={`https://wa.me/${selectedOrder.customer.phone.replace(/[^0-9]/g, "")}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn-outline py-2.5 text-xs text-center flex items-center justify-center gap-1.5"
+                    className="btn bg-[#2E7D32] py-2.5 text-xs text-center flex items-center justify-center gap-1.5"
                   >
                     WhatsApp Rider
                   </a>

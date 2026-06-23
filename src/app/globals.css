@@ -30,8 +30,8 @@
   --info: #0288d1;
 
   /* Font Families (to be overridden by layout.js Next.js fonts) */
-  --font-serif: "Playfair Display", Georgia, serif;
-  --font-sans: "Outfit", sans-serif;
+  /* --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Outfit", sans-serif; */
 
   /* Elevation Shadows */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -61,7 +61,7 @@
 body {
   background-color: var(--neutral-light);
   color: var(--neutral-dark);
-  font-family: var(--font-sans);
+  /* font-family: var(--font-sans); */
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
@@ -72,17 +72,17 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-serif);
+  /* font-family: var(--font-serif); */
   font-weight: 700;
 }
 
 /* Premium Typography Helper */
 .text-serif {
-  font-family: var(--font-serif);
+  /* font-family: var(--font-serif); */
 }
 
 .text-sans {
-  font-family: var(--font-sans);
+  /* font-family: var(--font-sans); */
 }
 
 /* Premium UI Buttons */
@@ -137,14 +137,14 @@ h6 {
 
 .btn-outline {
   background-color: transparent;
-  color: grey;
-  border-color: var(--border-color);
+  color: white;
+  border-color: var(--accent-gold);
 }
 
 .btn-outline:hover {
-  border-color: var(--primary);
+  border-color: var(--accent-gold);
   color: var(--primary);
-  background-color: var(--accent-light);
+  background-color: var(--accent-gold);
 }
 
 /* Premium UI Cards */

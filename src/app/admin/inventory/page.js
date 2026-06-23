@@ -40,7 +40,7 @@ export default function AdminInventoryPage() {
       
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold font-serif text-[#1E3A2F]">Inventory Movement Logs</h1>
+        <h1 className="text-2xl font-bold font-serif text-black">Inventory Movement Logs</h1>
         <p className="text-xs text-gray-500">Chronological tracking of stock restocks, buyer sales, and manual manager adjustments.</p>
       </div>
 
@@ -87,7 +87,7 @@ export default function AdminInventoryPage() {
                       {new Date(l.timestamp).toLocaleString()}
                     </td>
                     <td className="py-3">
-                      <span className="font-semibold text-[#1E3A2F] block">{l.productName}</span>
+                      <span className="font-semibold text-black block">{l.productName}</span>
                       <span className="text-[10px] text-gray-400 block font-mono">{l.sku}</span>
                     </td>
                     <td className="py-3">
